@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:store_app/core/models/user_data_model/user_data_response.dart';
-import 'package:store_app/features/auth/data/models/login_models/login_request.dart';
+import 'package:store_app/features/auth/data/models/login_request.dart';
 import 'package:store_app/features/auth/data/repos/login_repo/login_repo_impl.dart';
 
 part 'login_state.dart';
@@ -49,7 +49,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   String? validatePassword(String value) {
-    RegExp regex = RegExp(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$");
+    RegExp regex = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
     if (value.isEmpty || value.trim().isEmpty) {
       return 'Please enter password';
     } else {

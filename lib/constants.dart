@@ -1,9 +1,9 @@
-const kOnBoardingView = '/OnBoardingView';
+import 'dart:ui';
 
-const kLoginView = '/';
 
-const kRegisterView = '/reg';
 
 const kLoginEndpoint = 'login';
 
 const kRegisterEndpoint = 'register';
+
+const Color kMainColor = Color(0xff4bb096);

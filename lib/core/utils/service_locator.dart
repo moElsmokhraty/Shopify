@@ -11,8 +11,7 @@ void setupServiceLocator() {
     ApiService(
       Dio(
         BaseOptions(
-          //baseUrl: 'https://student.valuxapps.com/api/',
-          baseUrl: 'https://student.valux.com/api/',
+          baseUrl: 'https://student.valuxapps.com/api/',
           receiveDataWhenStatusError: true,
           headers: {
             'Content-Type': 'application/json',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:store_app/constants.dart';
+import 'package:store_app/core/utils/app_router.dart';
 
 class OnBoardingAppBar extends StatelessWidget {
   const OnBoardingAppBar({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class OnBoardingAppBar extends StatelessWidget {
       children: [
         TextButton(
           onPressed: () {
-            GoRouter.of(context).pushReplacement(kLoginView);
+            GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
           },
           child: const Text(
             'Skip',

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/core/utils/app_router.dart';
 import 'package:store_app/core/utils/styles.dart';
-import 'package:store_app/features/auth/data/models/login_models/login_request.dart';
+import 'package:store_app/features/auth/data/models/login_request.dart';
 import 'package:store_app/features/auth/presentation/view_models/cubits/login_cubit/login_cubit.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -15,6 +16,7 @@ class LoginViewBody extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginSuccess) {
+          AppRouter.router.pushReplacement(AppRouter.kHomeView);
         } else if (state is LoginFailure) {}
       },
       builder: (context, state) {
@@ -42,6 +44,7 @@ class LoginViewBody extends StatelessWidget {
                 ),
                 TextFormField(
                   controller: cubit.emailController,
+                  keyboardType: TextInputType.emailAddress,
                   validator: (value) {
                     return cubit.validateEmail(value!);
                   },
@@ -95,7 +98,9 @@ class LoginViewBody extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        AppRouter.router.pushReplacement(AppRouter.kRegisterView);
+                      },
                       child: const Text('Don\'t have account? Sign In'),
                     ),
                   ],
