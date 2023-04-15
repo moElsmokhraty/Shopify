@@ -2,17 +2,17 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:store_app/features/home/presentation/view_models/home_cubits/home_cubit.dart';
-import 'package:store_app/features/home/presentation/view_models/home_cubits/home_state.dart';
+import 'package:store_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
+import 'package:store_app/features/home/presentation/view_models/home_cubit/home_state.dart';
 
 class CustomBanners extends StatelessWidget {
   const CustomBanners({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var cubit = BlocProvider.of<HomeCubit>(context);
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        HomeCubit cubit = BlocProvider.of(context);
         return SizedBox(
           height: 260,
           child: Stack(
@@ -31,7 +31,7 @@ class CustomBanners extends StatelessWidget {
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enlargeCenterPage: false,
                   onPageChanged: (index, reason) {
-                    cubit.currentBannerIndex(index);
+                    cubit.changeBannerIndex(index);
                   },
                 ),
                 items: [

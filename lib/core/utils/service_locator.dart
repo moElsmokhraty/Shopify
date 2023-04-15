@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:store_app/core/utils/api_service.dart';
 import 'package:store_app/features/auth/data/repos/login_repo/login_repo_impl.dart';
 import 'package:store_app/features/auth/data/repos/register_repo/register_repo_impl.dart';
+import 'package:store_app/features/home/data/repos/home_repo/home_repo_impl.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -13,10 +14,6 @@ void setupServiceLocator() {
         BaseOptions(
           baseUrl: 'https://student.valuxapps.com/api/',
           receiveDataWhenStatusError: true,
-          headers: {
-            'Content-Type': 'application/json',
-            'lang': 'en',
-          },
         ),
       ),
     ),
@@ -30,6 +27,12 @@ void setupServiceLocator() {
 
   getIt.registerSingleton<RegisterRepoImpl>(
     RegisterRepoImpl(
+      getIt.get<ApiService>(),
+    ),
+  );
+
+  getIt.registerSingleton<HomeRepoImpl>(
+    HomeRepoImpl(
       getIt.get<ApiService>(),
     ),
   );

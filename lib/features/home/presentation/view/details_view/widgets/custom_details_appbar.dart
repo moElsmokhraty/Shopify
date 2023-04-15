@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
-import 'package:store_app/core/utils/AssetsApp.dart';
+import 'package:store_app/core/utils/app_assets.dart';
 import 'package:store_app/core/utils/app_router.dart';
 
 class DetailsAppBar extends StatelessWidget {
@@ -40,7 +40,7 @@ class DetailsAppBar extends StatelessWidget {
             height: 30,
             width: 28,
             child: Image.asset(
-              AssetsApp.shoppingBagIcon,
+              AppAssets.shoppingBagIcon,
               fit: BoxFit.fill,
             ),
           ),

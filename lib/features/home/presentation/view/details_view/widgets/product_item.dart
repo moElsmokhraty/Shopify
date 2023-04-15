@@ -15,7 +15,7 @@ class ProductItem extends StatelessWidget {
           CachedNetworkImage(
             height: MediaQuery.of(context).size.height * 0.5,
             imageUrl:
-            'https://student.valuxapps.com/storage/uploads/products/1615440322npwmU.71DVgBTdyLL._SL1500_.jpg',
+                'https://student.valuxapps.com/storage/uploads/products/1615440322npwmU.71DVgBTdyLL._SL1500_.jpg',
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),

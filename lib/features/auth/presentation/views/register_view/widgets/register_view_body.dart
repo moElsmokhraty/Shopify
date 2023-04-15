@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/core/utils/app_router.dart';
 import 'package:store_app/core/utils/styles.dart';
-import 'package:store_app/features/auth/data/models/register_request.dart';
+import 'package:store_app/features/auth/data/models/register_models/register_request.dart';
 import 'package:store_app/features/auth/presentation/view_models/cubits/register_cubit/register_cubit.dart';
 
 class RegisterViewBody extends StatelessWidget {
@@ -132,7 +132,8 @@ class RegisterViewBody extends StatelessWidget {
                     children: [
                       TextButton(
                         onPressed: () {
-                          AppRouter.router.pushReplacement(AppRouter.kLoginView);
+                          AppRouter.router
+                              .pushReplacement(AppRouter.kLoginView);
                         },
                         child: const Text('Already have account? Login'),
                       ),

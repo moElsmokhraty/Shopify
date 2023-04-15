@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:store_app/core/models/user_data_model/user_data_response.dart';
-import 'package:store_app/features/auth/data/models/register_request.dart';
+import 'package:store_app/features/auth/data/models/register_models/register_request.dart';
 import 'package:store_app/features/auth/data/repos/register_repo/register_repo_impl.dart';
 
 part 'register_state.dart';
@@ -22,13 +22,11 @@ class RegisterCubit extends Cubit<RegisterState> {
     emit(RegisterLoading());
     var result = await _registerRepoImpl.register(request);
     result.fold((failure) {
-      print(failure.errMessage);
       emit(RegisterFailure(failure.errMessage));
     }, (response) {
       if (response.status == true) {
         emit(RegisterSuccess(response));
       } else {
-        print(response.message!);
         emit(RegisterFailure(response.message!));
       }
     });
@@ -54,12 +52,12 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   String? validateEmail(String value) {
     RegExp regex = RegExp(
-        r"^[a-zA-Z\d.a-zA-Z!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z\d]+\.[a-zA-Z]+");
+        r"^[a-zA-Z\d.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z\d-]+(?:\.[a-zA-Z\d-]+)*$");
     if (value.isEmpty || value.trim().isEmpty) {
       return 'Please enter email';
     } else {
       if (!regex.hasMatch(value)) {
-        return 'Enter valid email';
+        return 'Please enter valid email';
       } else {
         return null;
       }
@@ -67,12 +65,26 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   String? validatePassword(String value) {
-    RegExp regex = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
     if (value.isEmpty || value.trim().isEmpty) {
       return 'Please enter password';
     } else {
-      if (regex.hasMatch(value)) {
-        return 'Enter valid password';
+      if (value.length < 8) {
+        return 'password length should be at least 8';
+      } else if (RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$')
+          .hasMatch(value)) {
+        return 'password length should include special characters';
+      } else if (RegExp(
+              r'^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
+          .hasMatch(value)) {
+        return 'password length should include numbers';
+      } else if (RegExp(
+              r'^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
+          .hasMatch(value)) {
+        return 'password length should include capital characters';
+      } else if (RegExp(
+              r'^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
+          .hasMatch(value)) {
+        return 'password length should include small characters';
       } else {
         return null;
       }

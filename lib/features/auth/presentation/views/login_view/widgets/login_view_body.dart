@@ -1,27 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:store_app/core/utils/app_router.dart';
+import 'package:store_app/core/utils/cache_helper.dart';
 import 'package:store_app/core/utils/styles.dart';
-import 'package:store_app/features/auth/data/models/login_request.dart';
+import 'package:store_app/features/auth/data/models/login_models/login_request.dart';
 import 'package:store_app/features/auth/presentation/view_models/cubits/login_cubit/login_cubit.dart';
 
 class LoginViewBody extends StatelessWidget {
-  LoginViewBody({Key? key}) : super(key: key);
-
-  final formKey = GlobalKey<FormState>();
+  const LoginViewBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<LoginCubit>(context);
     return BlocConsumer<LoginCubit, LoginState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is LoginSuccess) {
-          AppRouter.router.pushReplacement(AppRouter.kHomeView);
-        } else if (state is LoginFailure) {}
+          await CacheHelper.setData(key: 'token', value: state.userData.token)
+              .then((value) {
+            GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+            CacheHelper.setData(key: 'IsLoggedIn', value: true);
+          });
+        } else if (state is LoginFailure) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(state.errMessage),
+            ),
+          );
+        }
       },
       builder: (context, state) {
         return Form(
-          key: formKey,
+          key: cubit.formKey,
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
@@ -84,7 +94,7 @@ class LoginViewBody extends StatelessWidget {
                       ? const Center(child: CircularProgressIndicator())
                       : ElevatedButton(
                           onPressed: () async {
-                            if (formKey.currentState!.validate()) {
+                            if (cubit.formKey.currentState!.validate()) {
                               await cubit.login(
                                 LoginRequest(
                                     email: cubit.emailController.text,
@@ -99,7 +109,8 @@ class LoginViewBody extends StatelessWidget {
                   children: [
                     TextButton(
                       onPressed: () {
-                        AppRouter.router.pushReplacement(AppRouter.kRegisterView);
+                        AppRouter.router
+                            .pushReplacement(AppRouter.kRegisterView);
                       },
                       child: const Text('Don\'t have account? Sign In'),
                     ),

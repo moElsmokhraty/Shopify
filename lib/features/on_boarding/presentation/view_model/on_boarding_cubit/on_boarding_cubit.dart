@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:store_app/constants.dart';
 import 'package:store_app/core/utils/app_router.dart';
 import 'package:store_app/features/on_boarding/data/models/on_boarding_model.dart';
 
@@ -40,6 +39,7 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     }
     return isLast;
   }
+
   void navigate(context) {
     if (isLast) {
       GoRouter.of(context).pushReplacement(AppRouter.kLoginView);

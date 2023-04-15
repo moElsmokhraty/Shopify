@@ -4,7 +4,7 @@ import 'package:store_app/constants.dart';
 import 'package:store_app/core/errors/failure.dart';
 import 'package:store_app/core/models/user_data_model/user_data_response.dart';
 import 'package:store_app/core/utils/api_service.dart';
-import 'package:store_app/features/auth/data/models/login_request.dart';
+import 'package:store_app/features/auth/data/models/login_models/login_request.dart';
 import 'login_repo.dart';
 
 class LoginRepoImpl implements LoginRepo {
