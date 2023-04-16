@@ -12,7 +12,9 @@ class CustomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       onTap: (value) {
-        cubit.changeNavBarIndex(value);
+        if (value == 0 || value == 3) {
+          cubit.changeNavBarIndex(value);
+        }
       },
       currentIndex: cubit.navBarIndex,
       selectedIconTheme: const IconThemeData(color: kMainColor),

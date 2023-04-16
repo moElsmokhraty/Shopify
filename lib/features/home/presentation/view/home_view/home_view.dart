@@ -13,9 +13,10 @@ class HomeView extends StatelessWidget {
     var cubit = BlocProvider.of<HomeCubit>(context);
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
+        HomeCubit cubit = BlocProvider.of(context);
         return Scaffold(
-          body: const SafeArea(
-            child: HomeBodyView(),
+          body: SafeArea(
+              child: cubit.screens[cubit.navBarIndex],
           ),
           bottomNavigationBar: CustomNavBar(cubit: cubit),
         );

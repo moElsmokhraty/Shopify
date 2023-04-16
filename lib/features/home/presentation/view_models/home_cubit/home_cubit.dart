@@ -2,6 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:store_app/features/home/data/models/home_data_model/home_data_response.dart';
 import 'package:store_app/features/home/data/repos/home_repo/home_repo_impl.dart';
+import 'package:store_app/features/home/presentation/view/home_view/widgets/home_view_body.dart';
+import 'package:store_app/features/home/presentation/view/setting_view/setting_view.dart';
 import 'package:store_app/features/home/presentation/view_models/home_cubit/home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
@@ -9,12 +11,18 @@ class HomeCubit extends Cubit<HomeState> {
   final textController = TextEditingController();
 
   int bannerIndex = 0;
-
   int navBarIndex = 0;
 
   final HomeRepoImpl _homeRepImpl;
 
   HomeDataResponse? homeDataResponse;
+
+  List<Widget> screens = const [
+    HomeBodyView(),
+    Scaffold(),
+    Scaffold(),
+    SettingView(),
+  ];
 
   Future<void> getHomeData() async {
     emit(HomeGetDataLoading());
