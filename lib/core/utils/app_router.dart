@@ -9,6 +9,7 @@ import 'package:store_app/features/auth/presentation/view_models/cubits/register
 import 'package:store_app/features/auth/presentation/views/login_view/login_view.dart';
 import 'package:store_app/features/auth/presentation/views/register_view/register_view.dart';
 import 'package:store_app/features/home/presentation/view/details_view/details_view.dart';
+import 'package:store_app/features/home/presentation/view/edit_profile_view/edit_profile_view.dart';
 import 'package:store_app/features/home/presentation/view/home_view/home_view.dart';
 import 'package:store_app/features/home/presentation/view_models/details_cubit/details_cubit.dart';
 import 'package:store_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
@@ -19,12 +20,12 @@ import '../../features/home/data/repos/home_repo/home_repo_impl.dart';
 
 abstract class AppRouter {
   static const kOnBoardingView = '/onboarding';
-
   static String kLoginView = isLoggedIn == true ? '/login' : '/';
-
   static String kHomeView = isLoggedIn == true ? '/' : '/home';
   static const kDetailsView = '/details';
   static const kRegisterView = '/reg';
+  static const kEditProfileView = '/edit';
+
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -51,7 +52,8 @@ abstract class AppRouter {
       GoRoute(
         path: kHomeView,
         builder: (context, state) => BlocProvider(
-          create: (context) => HomeCubit(getIt.get<HomeRepoImpl>())..getHomeData(),
+          create: (context) =>
+              HomeCubit(getIt.get<HomeRepoImpl>())..getHomeData(),
           child: const HomeView(),
         ),
       ),
@@ -61,6 +63,10 @@ abstract class AppRouter {
           create: (context) => DetailsCubit(),
           child: const DetailsView(),
         ),
+      ),
+      GoRoute(
+        path: kEditProfileView,
+        builder: (context, state) => const EditProfileView(),
       ),
     ],
   );

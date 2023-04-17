@@ -4,6 +4,13 @@ import 'package:store_app/core/utils/app_assets.dart';
 
 class SearchTextField extends StatelessWidget {
   const SearchTextField({Key? key}) : super(key: key);
+  static const List<String> options = [
+    'Apple',
+    'Banana',
+    'Cherry',
+    'Durian',
+    'Elderberry'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +24,6 @@ class SearchTextField extends StatelessWidget {
         autofocus: false,
         cursorColor: kMainColor,
         style: const TextStyle(color: kMainColor),
-        onSubmitted: (value) {},
         decoration: InputDecoration(
           border: const OutlineInputBorder(
             borderSide: BorderSide(
@@ -44,6 +50,36 @@ class SearchTextField extends StatelessWidget {
             AppAssets.searchIcon,
             color: Colors.grey[400],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class AutocompleteExample extends StatelessWidget {
+  const AutocompleteExample({super.key});
+
+  static const List<String> options = [
+    'Apple',
+    'Banana',
+    'Cherry',
+    'Durian',
+    'Elderberry'
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Autocomplete<String>(
+          optionsBuilder: (TextEditingValue textEditingValue) {
+            return options.where((String option) {
+              return option.contains(textEditingValue.text.toLowerCase());
+            });
+          },
+          onSelected: (String selection) {
+            print('You selected $selection');
+          },
         ),
       ),
     );
