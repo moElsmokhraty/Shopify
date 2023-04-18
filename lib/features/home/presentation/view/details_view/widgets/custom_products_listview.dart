@@ -7,25 +7,26 @@ class ProductsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('tyguhj');
-    //   SizedBox(
-    //   height: 300,
-    //   child: ListView.separated(
-    //     physics: const BouncingScrollPhysics(),
-    //     scrollDirection: Axis.horizontal,
-    //     itemBuilder: (context, index) => SizedBox(
-    //         height: 300,
-    //         width: 180,
-    //         child: BestSellerItem(
-    //           pushRout: () {
-    //             AppRouter.router.pushReplacement(AppRouter.kDetailsView);
-    //           },
-    //         )),
-    //     separatorBuilder: (context, index) => const SizedBox(
-    //       width: 15,
-    //     ),
-    //     itemCount: 15,
-    //   ),
-    // );
+    return  SizedBox(
+      height: 300,
+      child: ListView.separated(
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) => SizedBox(
+            height: 300,
+            width: 180,
+            child: Text(""),
+            /*BestSellerItem(
+              pushRout: () {
+                AppRouter.router.pushReplacement(AppRouter.kDetailsView);
+              },
+            ),*/
+            ),
+        separatorBuilder: (context, index) => const SizedBox(
+          width: 15,
+        ),
+        itemCount: 15,
+      ),
+    );
   }
 }

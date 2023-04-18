@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/core/utils/app_assets.dart';
+import 'package:store_app/features/home/presentation/view/home_view/widgets/custom_auto_complete.dart';
 import 'package:store_app/features/home/presentation/view/home_view/widgets/search_text_field.dart';
 import 'package:store_app/features/home/presentation/view_models/search_cubit/search_cubit.dart';
 import 'package:badges/badges.dart' as badges;
@@ -17,7 +18,7 @@ class CustomAppBar extends StatelessWidget {
               const EdgeInsetsDirectional.only(start: 25, end: 25, bottom: 10),
           child: Row(
             children: [
-              const SearchTextField(),
+              AutocompleteExample(),
               const Spacer(),
               badges.Badge(
                 badgeContent: const Text("6"),
