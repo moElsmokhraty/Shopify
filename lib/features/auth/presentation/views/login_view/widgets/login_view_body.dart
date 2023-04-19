@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:store_app/constants.dart';
 import 'package:store_app/core/utils/app_router.dart';
 import 'package:store_app/core/utils/cache_helper.dart';
 import 'package:store_app/core/utils/styles.dart';
@@ -16,10 +17,9 @@ class LoginViewBody extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) async {
         if (state is LoginSuccess) {
-          await CacheHelper.setData(key: 'token', value: state.userData.token)
+          await CacheHelper.setData(key: kToken, value: state.userData.token)
               .then((value) {
             GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
-            CacheHelper.setData(key: 'IsLoggedIn', value: true);
           });
         } else if (state is LoginFailure) {
           ScaffoldMessenger.of(context).showSnackBar(

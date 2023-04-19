@@ -4,10 +4,12 @@ const kLoginEndpoint = 'login';
 
 const kRegisterEndpoint = 'register';
 
+const kLogoutEndpoint = 'logout';
+
 const kHomeEndpoint = 'home';
 
 const Color kMainColor = Color(0xff4bb096);
 
-String? token;
+const kToken = 'token';
 
-bool? isLoggedIn;
+String? token;

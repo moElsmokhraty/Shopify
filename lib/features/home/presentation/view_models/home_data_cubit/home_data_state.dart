@@ -4,5 +4,3 @@ part of 'home_data_cubit.dart';
 abstract class HomeDataState {}
 
 class HomeDataInitial extends HomeDataState {}
-
-

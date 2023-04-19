@@ -2,9 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:store_app/features/home/data/models/home_data_model/home_data_response.dart';
 import 'package:store_app/features/home/data/repos/home_repo/home_repo_impl.dart';
-import 'package:store_app/features/home/presentation/view/home_view/widgets/home_view_body.dart';
-import 'package:store_app/features/home/presentation/view/setting_view/setting_view.dart';
+import 'package:store_app/features/home/presentation/views/home_view/widgets/home_view_body.dart';
 import 'package:store_app/features/home/presentation/view_models/home_cubit/home_state.dart';
+
+import '../../../../settings/presentation/views/setting_view/setting_view.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._homeRepImpl) : super(HomeInitial());
@@ -15,7 +16,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   final HomeRepoImpl _homeRepImpl;
 
-  HomeDataResponse? homeDataResponse;
+  late HomeDataResponse homeDataResponse;
 
   List<Widget> screens = const [
     HomeBodyView(),
@@ -41,7 +42,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   void changeBannerIndex(ind) {
     bannerIndex = ind;
-    emit(ChangeBanner());
+    //emit(ChangeBanner());
   }
 
   void changeNavBarIndex(index) {
