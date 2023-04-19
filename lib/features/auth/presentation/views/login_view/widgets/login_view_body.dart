@@ -6,7 +6,10 @@ import 'package:store_app/core/utils/app_router.dart';
 import 'package:store_app/core/utils/cache_helper.dart';
 import 'package:store_app/core/utils/styles.dart';
 import 'package:store_app/features/auth/data/models/login_models/login_request.dart';
+import 'package:store_app/features/auth/presentation/views/widgets/custom_auth_button.dart';
+import 'package:store_app/features/auth/presentation/views/widgets/custom_auth_text_field.dart';
 import 'package:store_app/features/auth/presentation/view_models/cubits/login_cubit/login_cubit.dart';
+import 'package:store_app/features/auth/presentation/views/widgets/custom_nav_to_signup_login.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({Key? key}) : super(key: key);
@@ -38,84 +41,67 @@ class LoginViewBody extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Login',
-                  style: Styles.textStyle24,
+                Text(
+                  'Welcome!',
+                  style:
+                      Styles.textStyle24.copyWith(fontWeight: FontWeight.w800),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 30,
                 ),
-                const Text(
+                Text(
                   'Login now to explore our offers',
-                  style: Styles.textStyle18,
+                  style: Styles.textStyle18.copyWith(color: Colors.grey[600]),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
-                TextFormField(
+                CustomAuthTextField(
+                  textInputType: TextInputType.emailAddress,
                   controller: cubit.emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  validator: (value) {
-                    return cubit.validateEmail(value!);
-                  },
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    label: Text('email'),
-                    prefixIcon: Icon(Icons.email_outlined),
-                  ),
+                  validator: (value) => cubit.validateEmail(value),
+                  label: "Email",
+                  iconData: Icons.email_outlined,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                TextFormField(
-                  obscureText: cubit.isObscure,
+                CustomAuthTextField(
                   controller: cubit.passwordController,
-                  validator: (value) {
-                    return cubit.validatePassword(value!);
-                  },
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    label: const Text('password'),
-                    prefixIcon: const Icon(Icons.lock_outlined),
-                    suffixIcon: InkWell(
-                      onTap: () {
-                        cubit.changePasswordVisibility();
-                      },
-                      child: Icon(cubit.suffix),
-                    ),
-                  ),
+                  textInputType: TextInputType.visiblePassword,
+                  validator: (value) => cubit.validatePassword(value),
+                  label: "Password",
+                  iconData: Icons.lock_outline,
+                  isPassword: true,
+                  obscureText: cubit.isObscure,
+                  changeIconsFun: () => cubit.changePasswordVisibility(),
+                  passIconData: cubit.suffix,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  child: state is LoginLoading
-                      ? const Center(child: CircularProgressIndicator())
-                      : ElevatedButton(
-                          onPressed: () async {
-                            if (cubit.formKey.currentState!.validate()) {
-                              await cubit.login(
-                                LoginRequest(
-                                    email: cubit.emailController.text,
-                                    password: cubit.passwordController.text),
-                              );
-                            }
-                          },
-                          child: const Text('Login')),
+                CustomAuthButton(
+                    text: "Login",
+                    onTap: () async {
+                      if (cubit.formKey.currentState!.validate()) {
+                        await cubit.login(
+                          LoginRequest(
+                              email: cubit.emailController.text,
+                              password: cubit.passwordController.text),
+                        );
+                      }
+                    },
+                    state: state),
+                const SizedBox(
+                  height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        AppRouter.router
-                            .pushReplacement(AppRouter.kRegisterView);
-                      },
-                      child: const Text('Don\'t have account? Sign In'),
-                    ),
-                  ],
-                )
+                NavToSignupLogin(
+                  onTap: () {
+                    AppRouter.router.pushReplacement(AppRouter.kRegisterView);
+                  },
+                  firstText: 'Don\'t have account?',
+                  secondText: '  Sign in here',
+                ),
               ],
             ),
           ),

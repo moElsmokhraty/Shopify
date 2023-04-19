@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/features/home/presentation/views/home_view/widgets/best_seller_grid_view.dart';
+import 'package:store_app/features/home/presentation/views/home_view/widgets/category_list_view.dart';
 import 'package:store_app/features/home/presentation/views/home_view/widgets/custom_banners.dart';
 import 'package:store_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:store_app/features/home/presentation/view_models/home_cubit/home_state.dart';
@@ -18,6 +19,10 @@ class HomeBodyListView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const CustomBanners(),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+                child: SizedBox(height: 70, child: CategoriesListView()),
+              ),
               Container(
                 color: Colors.grey[100],
                 child: Column(

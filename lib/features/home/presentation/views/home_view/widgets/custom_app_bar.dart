@@ -17,7 +17,9 @@ class CustomAppBar extends StatelessWidget {
           child: Row(
             children: [
               AutocompleteExample(),
-              const Spacer(),
+              const SizedBox(
+                width: 25,
+              ),
               badges.Badge(
                 badgeContent: const Text("6"),
                 child: SizedBox(
@@ -30,7 +32,21 @@ class CustomAppBar extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 15,
+                width: 25,
+              ),
+              badges.Badge(
+                badgeContent: const Text("9"),
+                child: SizedBox(
+                  height: 35,
+                  width: 35,
+                  child: Image.asset(
+                    AppAssets.messageIcon2,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 20,
               ),
             ],
           ),

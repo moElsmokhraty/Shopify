@@ -12,11 +12,14 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   final RegisterRepoImpl _registerRepoImpl;
   final formKey = GlobalKey<FormState>();
   IconData suffix = Icons.visibility_outlined;
+  IconData suffixConfirm = Icons.visibility_outlined;
   bool isObscure = true;
+  bool isObscureConfirm = true;
 
   Future<void> register(RegisterRequest request) async {
     emit(RegisterLoading());
@@ -95,6 +98,12 @@ class RegisterCubit extends Cubit<RegisterState> {
     isObscure = !isObscure;
     suffix =
         isObscure ? Icons.visibility_outlined : Icons.visibility_off_outlined;
+    emit(RegisterChangePasswordVisibility());
+  }
+  void changeConfirmPasswordVisibility() {
+    isObscureConfirm = !isObscureConfirm;
+    suffixConfirm =
+    isObscureConfirm ? Icons.visibility_outlined : Icons.visibility_off_outlined;
     emit(RegisterChangePasswordVisibility());
   }
 }
