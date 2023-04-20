@@ -8,6 +8,8 @@ const kLogoutEndpoint = 'logout';
 
 const kHomeEndpoint = 'home';
 
+const kDetailsEndpoint = 'products';
+
 const Color kMainColor = Color(0xff4bb096);
 
 const kToken = 'token';

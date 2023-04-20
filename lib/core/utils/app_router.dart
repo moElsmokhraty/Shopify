@@ -8,6 +8,7 @@ import 'package:store_app/features/auth/presentation/view_models/cubits/login_cu
 import 'package:store_app/features/auth/presentation/view_models/cubits/register_cubit/register_cubit.dart';
 import 'package:store_app/features/auth/presentation/views/login_view/login_view.dart';
 import 'package:store_app/features/auth/presentation/views/register_view/register_view.dart';
+import 'package:store_app/features/home/data/repos/details_repo/details_repo_impl.dart';
 import 'package:store_app/features/home/presentation/views/details_view/details_view.dart';
 import 'package:store_app/features/home/presentation/views/edit_profile_view/edit_profile_view.dart';
 import 'package:store_app/features/home/presentation/views/home_view/home_view.dart';
@@ -59,7 +60,8 @@ abstract class AppRouter {
       GoRoute(
         path: kDetailsView,
         builder: (context, state) => BlocProvider(
-          create: (context) => DetailsCubit(),
+          create: (context) => DetailsCubit(getIt.get<DetailsRepoImpl>())
+            ..getProductDetails(state.extra as int),
           child: const DetailsView(),
         ),
       ),

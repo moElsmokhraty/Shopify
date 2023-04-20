@@ -52,7 +52,7 @@ class HomeBodyListView extends StatelessWidget {
                             ),
                           );
                         } else if (state is HomeGetDataSuccess ||
-                            state is ChangeBanner) {
+                            state is ChangeNavBarIndex) {
                           return BestSellerGridView(
                               response: BlocProvider.of<HomeCubit>(context)
                                   .homeDataResponse);

@@ -7,8 +7,8 @@ class CustomAuthButton extends StatelessWidget {
   const CustomAuthButton(
       {Key? key, required this.state, required this.onTap, required this.text})
       : super(key: key);
-  final state;
-  final Function () onTap;
+  final dynamic state;
+  final Function() onTap;
   final String text;
 
   @override

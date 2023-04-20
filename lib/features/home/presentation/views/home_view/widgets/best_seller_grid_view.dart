@@ -28,7 +28,8 @@ class BestSellerGridView extends StatelessWidget {
       itemBuilder: (context, index) => BestSellerItem(
         product: response.homeData!.products![index],
         pushRoute: () {
-          AppRouter.router.push(AppRouter.kDetailsView);
+          AppRouter.router.push(AppRouter.kDetailsView,
+              extra: response.homeData!.products![index].id);
         },
       ),
     );

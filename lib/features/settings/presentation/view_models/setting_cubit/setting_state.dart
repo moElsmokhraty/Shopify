@@ -14,5 +14,3 @@ class LogOutFailure extends SettingState {
 }
 
 class LogOutLoading extends SettingState {}
-
-

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/constants.dart';
 
-
 class NavToSignupLogin extends StatelessWidget {
   const NavToSignupLogin(
       {Key? key,

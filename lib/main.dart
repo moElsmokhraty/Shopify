@@ -7,9 +7,6 @@ import 'package:store_app/features/home/presentation/views/home_view/widgets/cus
 import 'package:store_app/features/home/presentation/view_models/search_cubit/search_cubit.dart';
 import 'bloc_observer.dart';
 import 'core/utils/cache_helper.dart';
-import 'features/settings/data/repos/settings_repo/settings_repo_impl.dart';
-import 'features/settings/presentation/view_models/setting_cubit/setting_cubit.dart';
-import 'features/settings/presentation/views/setting_view/setting_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,10 +25,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => SettingCubit(getIt.get<SettingsRepoImpl>()),
-          child: const SettingView(),
-        ),
         BlocProvider(
           create: (context) => SearchCubit(),
           child: const CustomAppBar(),

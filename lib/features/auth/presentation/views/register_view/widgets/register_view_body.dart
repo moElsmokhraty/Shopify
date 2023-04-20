@@ -38,7 +38,7 @@ class RegisterViewBody extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                    Text(
+                  Text(
                     'Register now to explore our offers',
                     style: Styles.textStyle18.copyWith(color: Colors.grey[600]),
                   ),

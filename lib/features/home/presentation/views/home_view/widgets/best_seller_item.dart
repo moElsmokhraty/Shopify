@@ -33,10 +33,14 @@ class BestSellerItem extends StatelessWidget {
                     width: 100,
                     imageUrl: product.image!,
                     errorWidget: (context, url, error) {
-                      return Text('fuck');
+                      return const Icon(Icons.error_outlined);
                     },
                     placeholder: (context, url) {
-                      return Text('fuck');
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          color: kMainColor,
+                        ),
+                      );
                     },
                   ),
                 ),
@@ -95,9 +99,12 @@ class BestSellerItem extends StatelessWidget {
                 height: 30,
                 width: 30,
                 color: Colors.grey[100],
-                child: const Icon(
-                  Icons.favorite_outline_rounded,
+                child: Icon(
+                  product.inFavorites!
+                      ? Icons.favorite_outlined
+                      : Icons.favorite_outline,
                   size: 20,
+                  color: !product.inFavorites! ? Colors.grey[800] : kMainColor,
                 ),
               ),
             ),
