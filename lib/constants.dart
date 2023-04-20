@@ -15,3 +15,5 @@ const Color kMainColor = Color(0xff4bb096);
 const kToken = 'token';
 
 String? token;
+const testImg =
+    'https://student.valuxapps.com/storage/uploads/products/1615440322npwmU.71DVgBTdyLL._SL1500_.jpg';

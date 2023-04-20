@@ -9,6 +9,7 @@ import 'package:store_app/features/auth/presentation/view_models/cubits/register
 import 'package:store_app/features/auth/presentation/views/login_view/login_view.dart';
 import 'package:store_app/features/auth/presentation/views/register_view/register_view.dart';
 import 'package:store_app/features/home/data/repos/details_repo/details_repo_impl.dart';
+import 'package:store_app/features/home/presentation/views/cart_view/cart_view.dart';
 import 'package:store_app/features/home/presentation/views/details_view/details_view.dart';
 import 'package:store_app/features/home/presentation/views/edit_profile_view/edit_profile_view.dart';
 import 'package:store_app/features/home/presentation/views/home_view/home_view.dart';
@@ -25,6 +26,7 @@ abstract class AppRouter {
   static const kDetailsView = '/details';
   static const kRegisterView = '/reg';
   static const kEditProfileView = '/edit';
+  static const kCartView = '/cartView';
 
   static final router = GoRouter(
     routes: [
@@ -68,6 +70,10 @@ abstract class AppRouter {
       GoRoute(
         path: kEditProfileView,
         builder: (context, state) => const EditProfileView(),
+      ),
+      GoRoute(
+        path: kCartView,
+        builder: (context, state) => const CartView(),
       ),
     ],
   );
