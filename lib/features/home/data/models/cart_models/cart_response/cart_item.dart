@@ -1,14 +1,14 @@
 import 'package:equatable/equatable.dart';
 import 'package:store_app/features/home/data/models/home_data_model/product.dart';
 
-class Cart extends Equatable {
+class CartItem extends Equatable {
   final int? id;
   final int? quantity;
   final Product? product;
 
-  const Cart({this.id, this.quantity, this.product});
+  const CartItem({this.id, this.quantity, this.product});
 
-  factory Cart.fromJson(Map<String, dynamic> json) => Cart(
+  factory CartItem.fromJson(Map<String, dynamic> json) => CartItem(
         id: json['id'] as int?,
         quantity: json['quantity'] as int?,
         product: json['product'] == null

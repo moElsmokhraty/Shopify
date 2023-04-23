@@ -10,7 +10,7 @@ class ProductsListView extends StatelessWidget {
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => SizedBox(
+        itemBuilder: (context, index) => const SizedBox(
           height: 300,
           width: 180,
           child: Text(""),

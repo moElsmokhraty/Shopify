@@ -7,7 +7,7 @@ class ApiService {
 
   Future<Map<String, dynamic>> post({
     required String endpoint,
-    required Map<String, dynamic> data,
+    Map<String, dynamic>? data,
     Map<String, dynamic>? query,
     String? token,
   }) async {

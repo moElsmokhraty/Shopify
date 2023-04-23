@@ -40,7 +40,9 @@ class CustomCartItem extends StatelessWidget {
           const Spacer(),
           Text("25000 LE",
               style: Styles.textStyle18.copyWith(color: kMainColor)),
-          const SizedBox(width: 10,),
+          const SizedBox(
+            width: 10,
+          ),
         ],
       ),
     );

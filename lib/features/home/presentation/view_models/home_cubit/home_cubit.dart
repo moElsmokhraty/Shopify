@@ -50,4 +50,5 @@ class HomeCubit extends Cubit<HomeState> {
     navBarIndex = index;
     emit(ChangeNavBarIndex());
   }
+
 }

@@ -1,20 +1,21 @@
 import 'package:equatable/equatable.dart';
 
-import 'data.dart';
+import 'cart_item.dart';
 
-class CartResponse extends Equatable {
+class AddOrRemoveCartResponse extends Equatable {
   final bool? status;
   final String? message;
-  final Cart? cart;
+  final CartItem? cart;
 
-  const CartResponse({this.status, this.message, this.cart});
+  const AddOrRemoveCartResponse({this.status, this.message, this.cart});
 
-  factory CartResponse.fromJson(Map<String, dynamic> json) => CartResponse(
+  factory AddOrRemoveCartResponse.fromJson(Map<String, dynamic> json) =>
+      AddOrRemoveCartResponse(
         status: json['status'] as bool?,
         message: json['message'] as String?,
         cart: json['data'] == null
             ? null
-            : Cart.fromJson(json['data'] as Map<String, dynamic>),
+            : CartItem.fromJson(json['data'] as Map<String, dynamic>),
       );
 
   Map<String, dynamic> toJson() => {

@@ -10,6 +10,10 @@ const kHomeEndpoint = 'home';
 
 const kDetailsEndpoint = 'products';
 
+const kAddOrRemoveCartEndpoint = 'carts';
+
+const kGetCartEndpoint = 'carts';
+
 const Color kMainColor = Color(0xff4bb096);
 
 const kToken = 'token';
