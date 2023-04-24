@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/features/home/data/models/cart_models/cart_response/add_or_remove_cart_response.dart';
 import 'package:store_app/features/home/data/models/cart_models/cart_response/get_cart_response.dart';
 import 'package:store_app/features/home/data/repos/cart_repo/cart_repo_impl.dart';
-import 'package:store_app/features/home/presentation/view_models/details_cubit/details_cubit.dart';
 
 part 'cart_state.dart';
 
@@ -14,7 +13,6 @@ class CartCubit extends Cubit<CartState> {
   final CartRepoImpl _cartRepoImpl;
 
   bool inCart = false;
-
   late IconData shoppingIcon;
 
   Future<void> getCart() async {
@@ -45,9 +43,8 @@ class CartCubit extends Cubit<CartState> {
     });
   }
 
-  void changeCart(bool inCart, context, int productID) async {
-    var details = BlocProvider.of<DetailsCubit>(context);
+  void changeCart(bool isCart) async {
+
+    emit(ChangeInCart());
   }
-
-
 }

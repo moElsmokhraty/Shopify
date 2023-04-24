@@ -1,10 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/constants.dart';
 import 'package:store_app/features/home/data/models/home_data_model/product.dart';
-import 'package:store_app/features/home/presentation/view_models/cart_cubit/cart_cubit.dart';
-import 'package:store_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:store_app/features/home/presentation/views/cart_view/widgets/add_or_remove_cart_button.dart';
 
 class BestSellerItem extends StatelessWidget {

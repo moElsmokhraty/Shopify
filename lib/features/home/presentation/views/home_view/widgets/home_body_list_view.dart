@@ -51,14 +51,14 @@ class HomeBodyListView extends StatelessWidget {
                             ),
                           );
                         } else if (state is HomeGetDataSuccess ||
-                            state is ChangeNavBarIndex) {
+                            state is ChangeNavBarIndex ||
+                            state is HomeGetDataLoading) {
                           return BestSellerGridView(
-                              response: BlocProvider.of<HomeCubit>(context)
-                                  .homeDataResponse);
-                        } else {
-                          return const Center(
-                            child: CircularProgressIndicator(),
+                            response: BlocProvider.of<HomeCubit>(context)
+                                .homeDataResponse,
                           );
+                        } else {
+                          return const BestSellerGridView();
                         }
                       },
                     ),

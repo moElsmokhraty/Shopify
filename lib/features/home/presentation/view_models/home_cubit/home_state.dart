@@ -8,6 +8,8 @@ class ChangeNavBarIndex extends HomeState {}
 
 class HomeGetDataLoading extends HomeState {}
 
+class InitHomeGetDataLoading extends HomeState {}
+
 class HomeGetDataSuccess extends HomeState {}
 
 class HomeGetDataFailure extends HomeState {

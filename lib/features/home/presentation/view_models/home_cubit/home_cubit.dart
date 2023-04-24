@@ -14,7 +14,7 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._homeRepImpl) : super(HomeInitial());
   final textController = TextEditingController();
   int navBarIndex = 0;
-
+  bool firstTime = false;
   final HomeRepoImpl _homeRepImpl;
 
   late HomeDataResponse homeDataResponse;
@@ -32,7 +32,12 @@ class HomeCubit extends Cubit<HomeState> {
   ];
 
   Future<void> getHomeData() async {
-    emit(HomeGetDataLoading());
+    if (firstTime == false) {
+      firstTime = true;
+      emit(InitHomeGetDataLoading());
+    } else {
+      emit(HomeGetDataLoading());
+    }
     var result = await _homeRepImpl.getHomeData();
     result.fold((failure) {
       emit(HomeGetDataFailure(failure.errMessage));
@@ -50,5 +55,4 @@ class HomeCubit extends Cubit<HomeState> {
     navBarIndex = index;
     emit(ChangeNavBarIndex());
   }
-
 }
