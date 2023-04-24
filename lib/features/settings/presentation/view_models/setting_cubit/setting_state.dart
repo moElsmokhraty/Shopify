@@ -5,6 +5,8 @@ abstract class SettingState {}
 
 class SettingInitial extends SettingState {}
 
+class LogOutLoading extends SettingState {}
+
 class LogOutSuccess extends SettingState {}
 
 class LogOutFailure extends SettingState {
@@ -13,4 +15,16 @@ class LogOutFailure extends SettingState {
   LogOutFailure(this.errMessage);
 }
 
-class LogOutLoading extends SettingState {}
+class GetProfileLoading extends SettingState {}
+
+class GetProfileSuccess extends SettingState {
+  final UserDataResponse response;
+
+  GetProfileSuccess(this.response);
+}
+
+class GetProfileFailure extends SettingState {
+  final String errMessage;
+
+  GetProfileFailure(this.errMessage);
+}

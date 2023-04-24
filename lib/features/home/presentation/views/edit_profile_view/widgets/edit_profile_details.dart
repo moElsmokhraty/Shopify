@@ -25,9 +25,8 @@ class EditProfileDetails extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          const NameAndBio(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            space: 10,
+          NameAndBio(name: '', email: 'hjbnk',
+
           ),
           const SizedBox(
             height: 30,

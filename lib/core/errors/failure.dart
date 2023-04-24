@@ -45,7 +45,7 @@ class ServerFailure extends Failure {
         statusCode == 401 ||
         statusCode == 403 ||
         statusCode == 409) {
-      return ServerFailure(errMessage: response['error']['message']);
+      return ServerFailure(errMessage: response['message']);
     } else if (statusCode == 404) {
       return ServerFailure(
           errMessage: 'Your request was not found, Please try again later');

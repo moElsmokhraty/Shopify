@@ -16,7 +16,7 @@ void main() async {
   setupServiceLocator();
   Bloc.observer = MyBlocObserver();
   await CacheHelper.init();
-  token = CacheHelper.getData(key: kToken);
+  token = await CacheHelper.getData(key: kToken);
   runApp(const MyApp());
 }
 

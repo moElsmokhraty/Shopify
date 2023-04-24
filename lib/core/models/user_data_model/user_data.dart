@@ -7,7 +7,7 @@ class UserData extends Equatable {
   final String? phone;
   final String? image;
   final int? points;
-  final int? credit;
+  final num? credit;
   final String? token;
 
   const UserData({
@@ -28,7 +28,7 @@ class UserData extends Equatable {
         phone: json['phone'] as String?,
         image: json['image'] as String?,
         points: json['points'] as int?,
-        credit: json['credit'] as int?,
+        credit: json['credit'] as num?,
         token: json['token'] as String?,
       );
 

@@ -20,6 +20,9 @@ class LoginViewBody extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) async {
         if (state is LoginSuccess) {
+          CacheHelper.setData(key: kName, value: state.userData.name);
+          CacheHelper.setData(key: kEmail, value: state.userData.email);
+          CacheHelper.setData(key: kImage, value: state.userData.image);
           await CacheHelper.setData(key: kToken, value: state.userData.token)
               .then((value) {
             GoRouter.of(context).pushReplacement(AppRouter.kHomeView);

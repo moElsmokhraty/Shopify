@@ -20,7 +20,10 @@ class CartButton extends StatelessWidget {
               state.cartResponse.cartData!.cartItems!.isNotEmpty,
           badgeContent: (state is GetCartSuccess)
               ? Text(
-                  state.cartResponse.cartData!.cartItems!.length > 9 ? '+9' : state.cartResponse.cartData!.cartItems!.length.toString(),
+                  state.cartResponse.cartData!.cartItems!.length > 9
+                      ? '+9'
+                      : state.cartResponse.cartData!.cartItems!.length
+                          .toString(),
                   style: const TextStyle(
                     fontSize: 12,
                     color: Colors.white,

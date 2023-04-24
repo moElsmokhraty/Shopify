@@ -18,7 +18,10 @@ class CartViewBody extends StatelessWidget {
           const SizedBox(
             height: 25,
           ),
-          const SizedBox(height: 350, child: CustomCartList()),
+          const SizedBox(
+            height: 350,
+            child: CustomCartList(),
+          ),
           const SizedBox(
             height: 30,
           ),

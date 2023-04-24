@@ -26,7 +26,7 @@ class HomeCubit extends Cubit<HomeState> {
     BlocProvider(
       create: (context) => SettingCubit(
         getIt.get<SettingsRepoImpl>(),
-      ),
+      )..getProfile(),
       child: const SettingView(),
     ),
   ];

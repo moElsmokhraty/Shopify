@@ -4,8 +4,8 @@ import 'package:store_app/features/home/data/models/cart_models/cart_response/ad
 import 'package:store_app/features/home/data/models/cart_models/cart_response/get_cart_response.dart';
 
 abstract class CartRepo {
-
   Future<Either<Failure, GetCartResponse>> getCart();
 
-  Future<Either<Failure, AddOrRemoveCartResponse>> addOrRemoveCartItem({required int id});
+  Future<Either<Failure, AddOrRemoveCartResponse>> addOrRemoveCartItem(
+      {required int id});
 }

@@ -4,6 +4,7 @@ import 'package:store_app/features/home/presentation/views/home_view/widgets/bes
 import 'package:store_app/features/home/presentation/views/home_view/widgets/custom_banners.dart';
 import 'package:store_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:store_app/features/home/presentation/view_models/home_cubit/home_state.dart';
+import 'package:store_app/features/home/presentation/views/home_view/widgets/loading_item.dart';
 
 class HomeBodyListView extends StatelessWidget {
   const HomeBodyListView({Key? key}) : super(key: key);
