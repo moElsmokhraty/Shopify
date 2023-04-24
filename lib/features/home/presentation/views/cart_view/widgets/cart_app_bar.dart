@@ -4,7 +4,6 @@ import 'package:store_app/core/widgets/custom_arrow_back_button.dart';
 
 class CartAppBar extends StatelessWidget {
   const CartAppBar({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Column(

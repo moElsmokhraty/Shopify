@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:store_app/core/utils/styles.dart';
 
 class TotalView extends StatelessWidget {
-  const TotalView({Key? key}) : super(key: key);
+  const TotalView({Key? key, required this.totalPrice}) : super(key: key);
+  final String totalPrice;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class TotalView extends StatelessWidget {
           ),
           const Spacer(),
           Text(
-            "25000 LE",
+           totalPrice,
             style: Styles.textStyle20
                 .copyWith(color: Colors.grey[700], fontSize: 21),
           ),

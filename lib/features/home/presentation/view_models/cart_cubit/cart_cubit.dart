@@ -12,7 +12,6 @@ class CartCubit extends Cubit<CartState> {
 
   final CartRepoImpl _cartRepoImpl;
 
-  bool inCart = false;
   late IconData shoppingIcon;
 
   Future<void> getCart() async {
@@ -41,10 +40,5 @@ class CartCubit extends Cubit<CartState> {
         emit(AddOrRemoveCartSuccess(response));
       }
     });
-  }
-
-  void changeCart(bool isCart) async {
-
-    emit(ChangeInCart());
   }
 }

@@ -12,6 +12,7 @@ class CustomCartItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Slidable(
       key: const ValueKey(0),
       startActionPane: ActionPane(
@@ -40,7 +41,8 @@ class CustomCartItem extends StatelessWidget {
           const SizedBox(
             width: 20,
           ),
-          Expanded(
+          SizedBox(
+            width: size.width*0.4,
             child: NameAndCountOfItem(
               name: cartItem!.product!.name!,
             ),
@@ -66,14 +68,14 @@ class NameAndCountOfItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
           name,
-          style: Styles.textStyle20.copyWith(fontSize: 22),
+          style: Styles.textStyle20.copyWith(fontSize: 18),
           overflow: TextOverflow.ellipsis,
+          maxLines: 2,
         ),
         const SizedBox(
           height: 5,
