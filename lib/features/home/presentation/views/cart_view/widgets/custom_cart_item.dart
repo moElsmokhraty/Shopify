@@ -1,9 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:store_app/constants.dart';
 import 'package:store_app/core/utils/styles.dart';
 import 'package:store_app/features/home/data/models/cart_models/cart_response/cart_item.dart';
+import 'package:store_app/features/home/presentation/view_models/cart_cubit/cart_cubit.dart';
+import 'package:store_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 
 class CustomCartItem extends StatelessWidget {
   const CustomCartItem({Key? key, this.cartItem}) : super(key: key);
@@ -14,8 +17,20 @@ class CustomCartItem extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Slidable(
+      closeOnScroll: false,
       key: const ValueKey(0),
       startActionPane: ActionPane(
+        dismissible: DismissiblePane(
+          onDismissed: () async {
+            print('a7a');
+            BlocProvider.of<CartCubit>(context)
+                .addOrRemoveCart(productId: cartItem!.product!.id!)
+                .then((value) {
+              BlocProvider.of<CartCubit>(context).getCart();
+              BlocProvider.of<HomeCubit>(context).getHomeData();
+            });
+          },
+        ),
         motion: const ScrollMotion(),
         children: [
           SlidableAction(
@@ -42,7 +57,7 @@ class CustomCartItem extends StatelessWidget {
             width: 20,
           ),
           SizedBox(
-            width: size.width*0.4,
+            width: size.width * 0.4,
             child: NameAndCountOfItem(
               name: cartItem!.product!.name!,
             ),

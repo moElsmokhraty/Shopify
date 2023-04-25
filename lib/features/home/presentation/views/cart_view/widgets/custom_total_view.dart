@@ -22,7 +22,7 @@ class TotalView extends StatelessWidget {
           ),
           const Spacer(),
           Text(
-           totalPrice,
+            totalPrice,
             style: Styles.textStyle20
                 .copyWith(color: Colors.grey[700], fontSize: 21),
           ),

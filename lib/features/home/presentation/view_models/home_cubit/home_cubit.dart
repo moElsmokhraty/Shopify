@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/core/utils/service_locator.dart';
 import 'package:store_app/features/home/data/models/home_data_model/home_data_response.dart';
+import 'package:store_app/features/home/data/repos/favourite_repo/favourite_repo_impl.dart';
 import 'package:store_app/features/home/data/repos/home_repo/home_repo_impl.dart';
+import 'package:store_app/features/home/presentation/view_models/favourite_cubit/favourite_cubit.dart';
 import 'package:store_app/features/home/presentation/views/favourite_view/favourite_view.dart';
 import 'package:store_app/features/home/presentation/views/home_view/widgets/home_view_body.dart';
 import 'package:store_app/features/home/presentation/view_models/home_cubit/home_state.dart';
@@ -22,7 +24,12 @@ class HomeCubit extends Cubit<HomeState> {
   List<Widget> screens = [
     const HomeBodyView(),
     const Scaffold(),
-    const FavouriteView(),
+    BlocProvider(
+      create: (context) => FavouriteCubit(
+        getIt.get<FavouriteRepoImpl>()..getFavourites(),
+      ),
+      child: const FavouriteView(),
+    ),
     BlocProvider(
       create: (context) => SettingCubit(
         getIt.get<SettingsRepoImpl>(),

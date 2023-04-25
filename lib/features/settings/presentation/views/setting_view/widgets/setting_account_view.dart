@@ -28,15 +28,15 @@ class AccountView extends StatelessWidget {
                   backgroundColor: Colors.grey[300],
                   radius: 25,
                   child: CachedNetworkImage(
-                    imageUrl: CacheHelper.getData(key: 'user')['image'],
+                    imageUrl: CacheHelper.getData(key: kImage),
                   ),
                 ),
                 const SizedBox(
                   width: 15,
                 ),
                 NameAndBio(
-                  name: CacheHelper.getData(key: 'user')['name'],
-                  email: CacheHelper.getData(key: 'user')['email'],
+                  name: CacheHelper.getData(key: kName),
+                  email: CacheHelper.getData(key: kEmail),
                 ),
                 const Spacer(),
                 Icon(

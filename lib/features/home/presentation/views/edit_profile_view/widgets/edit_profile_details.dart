@@ -25,8 +25,9 @@ class EditProfileDetails extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          NameAndBio(name: '', email: 'hjbnk',
-
+          NameAndBio(
+            name: '',
+            email: 'hjbnk',
           ),
           const SizedBox(
             height: 30,

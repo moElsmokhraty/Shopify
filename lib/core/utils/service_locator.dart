@@ -5,6 +5,7 @@ import 'package:store_app/features/auth/data/repos/login_repo/login_repo_impl.da
 import 'package:store_app/features/auth/data/repos/register_repo/register_repo_impl.dart';
 import 'package:store_app/features/home/data/repos/cart_repo/cart_repo_impl.dart';
 import 'package:store_app/features/home/data/repos/details_repo/details_repo_impl.dart';
+import 'package:store_app/features/home/data/repos/favourite_repo/favourite_repo_impl.dart';
 import 'package:store_app/features/home/data/repos/home_repo/home_repo_impl.dart';
 import 'package:store_app/features/settings/data/repos/settings_repo/settings_repo_impl.dart';
 
@@ -54,6 +55,12 @@ void setupServiceLocator() {
 
   getIt.registerSingleton<CartRepoImpl>(
     CartRepoImpl(
+      getIt.get<ApiService>(),
+    ),
+  );
+
+  getIt.registerSingleton<FavouriteRepoImpl>(
+    FavouriteRepoImpl(
       getIt.get<ApiService>(),
     ),
   );

@@ -27,22 +27,23 @@ class BestSellerGridView extends StatelessWidget {
       ),
       itemCount: response == null ? 4 : response!.homeData!.products!.length,
       itemBuilder: (context, index) {
-        if(response == null) {
+        if (response == null) {
           return const ShimmerItem();
         }
         return BestSellerItem(
-        product: response!.homeData!.products![index],
-        pushRoute: () {
-          if(response != null) {
-            AppRouter.router.push(AppRouter.kDetailsView,
-              extra: response!.homeData!.products![index].id);
-          }
-        },
-      );
+          product: response!.homeData!.products![index],
+          pushRoute: () {
+            if (response != null) {
+              AppRouter.router.push(AppRouter.kDetailsView,
+                  extra: response!.homeData!.products![index].id);
+            }
+          },
+        );
       },
     );
   }
 }
+
 class ShimmerItem extends StatelessWidget {
   const ShimmerItem({Key? key}) : super(key: key);
 
@@ -69,8 +70,7 @@ class ShimmerItem extends StatelessWidget {
               height: 4,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Container(
                 height: 16,
                 width: 200,

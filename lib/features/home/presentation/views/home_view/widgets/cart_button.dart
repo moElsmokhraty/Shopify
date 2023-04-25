@@ -13,7 +13,10 @@ class CartButton extends StatelessWidget {
     return BlocBuilder<CartCubit, CartState>(
       builder: (context, state) => InkWell(
         onTap: () {
-          AppRouter.router.push(AppRouter.kCartView);
+          AppRouter.router.push(
+            AppRouter.kCartView,
+            extra: state is GetCartSuccess ? state.cartResponse : null,
+          );
         },
         child: badges.Badge(
           showBadge: state is GetCartSuccess &&

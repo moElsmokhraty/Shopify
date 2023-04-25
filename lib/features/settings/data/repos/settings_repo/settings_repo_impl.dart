@@ -16,10 +16,11 @@ class SettingsRepoImpl implements SettingsRepo {
   Future<Either<Failure, UserDataResponse>> getProfile() async {
     // TODO: implement getProfile
     try {
-      var data = await _apiService.get(endpoint: kProfileEndpoint, token: token);
+      var data =
+          await _apiService.get(endpoint: kProfileEndpoint, token: token);
       return Right(UserDataResponse.fromJson(data));
     } on Exception catch (e) {
-      if (e is DioError){
+      if (e is DioError) {
         return Left(ServerFailure.fromDioError(e));
       } else {
         return Left(ServerFailure(errMessage: e.toString()));

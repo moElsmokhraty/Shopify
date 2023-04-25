@@ -4,8 +4,7 @@ import 'package:store_app/features/home/data/models/cart_models/cart_response/ca
 import 'package:store_app/features/home/presentation/views/cart_view/widgets/custom_cart_item.dart';
 
 class CustomCartList extends StatelessWidget {
-  const CustomCartList({Key? key, required this.items})
-      : super(key: key);
+  const CustomCartList({Key? key, required this.items}) : super(key: key);
 
   final List<CartItem> items;
 
@@ -68,4 +67,3 @@ class ShimmerCustomCartList extends StatelessWidget {
     );
   }
 }
-

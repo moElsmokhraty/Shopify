@@ -8,6 +8,7 @@ import 'package:store_app/features/auth/presentation/view_models/cubits/login_cu
 import 'package:store_app/features/auth/presentation/view_models/cubits/register_cubit/register_cubit.dart';
 import 'package:store_app/features/auth/presentation/views/login_view/login_view.dart';
 import 'package:store_app/features/auth/presentation/views/register_view/register_view.dart';
+import 'package:store_app/features/home/data/models/cart_models/cart_response/get_cart_response.dart';
 import 'package:store_app/features/home/data/repos/cart_repo/cart_repo_impl.dart';
 import 'package:store_app/features/home/data/repos/details_repo/details_repo_impl.dart';
 import 'package:store_app/features/home/presentation/view_models/cart_cubit/cart_cubit.dart';
@@ -74,12 +75,11 @@ abstract class AppRouter {
         builder: (context, state) => const EditProfileView(),
       ),
       GoRoute(
-        path: kCartView,
-        builder: (context, state) => BlocProvider(
-          create: (context) => CartCubit(getIt.get<CartRepoImpl>())..getCart(),
-          child: const CartView(),
-        )
-      ),
+          path: kCartView,
+          builder: (context, state) => BlocProvider(
+                create: (context) => CartCubit(getIt.get<CartRepoImpl>()),
+                child: CartView(cartResponse: state.extra as GetCartResponse),
+              )),
     ],
   );
 }

@@ -12,7 +12,9 @@ class FavouriteBody extends StatelessWidget {
       children: const [
         FavouriteAppBar(),
         SizedBox(height: 15),
-        Expanded(child: FavouriteList()),
+        Expanded(
+          child: FavouriteList(),
+        ),
       ],
     );
   }

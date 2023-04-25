@@ -13,9 +13,9 @@ class SettingCubit extends Cubit<SettingState> {
   Future<void> getProfile() async {
     emit(GetProfileLoading());
     var response = await _settingsRepoImpl.getProfile();
-    response.fold((failure){
+    response.fold((failure) {
       emit(GetProfileFailure(failure.errMessage));
-    }, (response){
+    }, (response) {
       if (response.status == false) {
         emit(GetProfileFailure('error'));
       } else {

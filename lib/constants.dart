@@ -18,6 +18,8 @@ const kGetCartEndpoint = 'carts';
 
 const kProfileEndpoint = 'profile';
 
+const kFavouritesEndpoint = 'favorites';
+
 const Color kMainColor = Color(0xff4bb096);
 
 const kToken = 'token';
