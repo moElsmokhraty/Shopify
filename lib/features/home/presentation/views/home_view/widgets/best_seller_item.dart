@@ -6,6 +6,7 @@ import 'package:store_app/features/home/data/models/home_data_model/product.dart
 import 'package:store_app/features/home/presentation/view_models/favourite_cubit/favourite_cubit.dart';
 import 'package:store_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:store_app/features/home/presentation/views/cart_view/widgets/add_or_remove_cart_button.dart';
+import 'package:store_app/core/widgets/loading_screen.dart';
 
 class BestSellerItem extends StatelessWidget {
   const BestSellerItem({
@@ -49,7 +50,7 @@ class BestSellerItem extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 4,
+                  height: 24,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -64,11 +65,7 @@ class BestSellerItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Expanded(
-                  child: SizedBox(
-                    height: 15,
-                  ),
-                ),
+                const Spacer(),
                 Row(
                   children: [
                     const SizedBox(
@@ -93,7 +90,13 @@ class BestSellerItem extends StatelessWidget {
             ),
             InkWell(
               onTap: () async {
-                 BlocProvider.of<FavouriteCubit>(context).addOrRemoveFavourite(product.id!).then((value){
+                showDialog(
+                  context: context,
+                  builder: (context) => const Loading(),
+                );
+                BlocProvider.of<FavouriteCubit>(context)
+                    .addOrRemoveFavourite(product.id!)
+                    .then((value) {
                   BlocProvider.of<HomeCubit>(context).getHomeData();
                 });
               },

@@ -10,6 +10,7 @@ class FavouriteCubit extends Cubit<FavouriteState> {
   FavouriteCubit(this._favouriteRepoImpl) : super(FavouriteInitial());
 
   final FavouriteRepoImpl _favouriteRepoImpl;
+  bool initLoading = false;
 
   Future<void> getFavourites() async {
     emit(GetFavouriteLoading());

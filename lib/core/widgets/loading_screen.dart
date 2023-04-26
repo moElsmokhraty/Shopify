@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:store_app/constants.dart';
@@ -17,7 +16,7 @@ class _LoadingState extends State<Loading> {
   @override
   void initState() {
     Timer(
-      const Duration(seconds: 7),
+      const Duration(milliseconds: 7000),
       () => Navigator.pop(context),
     );
     super.initState();
