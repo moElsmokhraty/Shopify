@@ -13,7 +13,7 @@ class FavouriteCubit extends Cubit<FavouriteState> {
 
   Future<void> getFavourites() async {
     emit(GetFavouriteLoading());
-    var data = await _favouriteRepoImpl.getFavourites();
+    var data = await _favouriteRepoImpl.fetchFavourites();
     data.fold((failure) {
       emit(GetFavouriteFailure(failure.errMessage));
     }, (response) {
