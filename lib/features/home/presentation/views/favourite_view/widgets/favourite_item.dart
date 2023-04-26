@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:store_app/constants.dart';
 import 'package:store_app/core/utils/styles.dart';
+import 'package:store_app/features/home/data/models/favourite_models/favourite_response/favourite_model.dart';
 
 class FavouriteItem extends StatelessWidget {
-  const FavouriteItem({Key? key}) : super(key: key);
+  const FavouriteItem({Key? key, required this.favouriteModel}) : super(key: key);
 
+  final FavouriteModel favouriteModel ;
   @override
   Widget build(BuildContext context) {
     return Slidable(

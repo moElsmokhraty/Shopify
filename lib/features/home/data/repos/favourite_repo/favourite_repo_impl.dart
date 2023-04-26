@@ -16,7 +16,6 @@ class FavouriteRepoImpl implements FavouriteRepo {
 
   @override
   Future<Either<Failure, FavouriteResponse>> getFavourites() async {
-    // TODO: implement getFavourites
     try {
       var response =
           await _apiService.get(endpoint: kFavouritesEndpoint, token: token);

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/features/home/data/models/cart_models/cart_response/get_cart_response.dart';
-import 'package:store_app/features/home/presentation/view_models/cart_cubit/cart_cubit.dart';
 import 'package:store_app/features/home/presentation/views/cart_view/widgets/cart_app_bar.dart';
 import 'package:store_app/features/home/presentation/views/cart_view/widgets/custom_cart_list.dart';
 import 'package:store_app/features/home/presentation/views/cart_view/widgets/custom_check_button.dart';

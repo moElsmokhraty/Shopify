@@ -4,12 +4,18 @@ import 'package:store_app/constants.dart';
 import 'package:store_app/core/utils/app_router.dart';
 import 'package:store_app/core/utils/service_locator.dart';
 import 'package:store_app/features/home/data/repos/cart_repo/cart_repo_impl.dart';
+import 'package:store_app/features/home/data/repos/favourite_repo/favourite_repo_impl.dart';
 import 'package:store_app/features/home/presentation/view_models/cart_cubit/cart_cubit.dart';
+import 'package:store_app/features/home/presentation/view_models/favourite_cubit/favourite_cubit.dart';
 import 'package:store_app/features/home/presentation/views/home_view/widgets/cart_button.dart';
 import 'package:store_app/features/home/presentation/views/home_view/widgets/custom_app_bar.dart';
 import 'package:store_app/features/home/presentation/view_models/search_cubit/search_cubit.dart';
+import 'package:store_app/features/settings/data/repos/settings_repo/settings_repo_impl.dart';
+import 'package:store_app/features/settings/presentation/view_models/setting_cubit/setting_cubit.dart';
 import 'bloc_observer.dart';
 import 'core/utils/cache_helper.dart';
+import 'features/home/presentation/views/favourite_view/favourite_view.dart';
+import 'features/settings/presentation/views/setting_view/setting_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +41,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => CartCubit(getIt.get<CartRepoImpl>())..getCart(),
           child: const CartButton(),
-        )
+        ),
+
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

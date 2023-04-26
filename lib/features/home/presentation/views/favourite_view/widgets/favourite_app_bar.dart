@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/core/utils/styles.dart';
 import 'package:store_app/core/widgets/custom_arrow_back_button.dart';
+import 'package:store_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 
 class FavouriteAppBar extends StatelessWidget {
   const FavouriteAppBar({Key? key}) : super(key: key);
@@ -13,7 +15,9 @@ class FavouriteAppBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomIconButton(
-            onTap: () {},
+            onTap: () {
+              BlocProvider.of<HomeCubit>(context).changeNavBarIndex(0);
+            },
             iconData: Icons.arrow_back_sharp,
           ),
           const SizedBox(

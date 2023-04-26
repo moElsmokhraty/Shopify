@@ -33,37 +33,3 @@ class CustomCartList extends StatelessWidget {
   }
 }
 
-class ShimmerCustomCartList extends StatelessWidget {
-  const ShimmerCustomCartList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.separated(
-      physics: const BouncingScrollPhysics(),
-      itemBuilder: (context, index) => Shimmer.fromColors(
-        baseColor: Colors.grey[100]!,
-        highlightColor: Colors.grey[400]!,
-        child: Row(
-          children: [
-            Container(
-              color: Colors.grey,
-              height: 80,
-              width: 80,
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            Expanded(
-              child: Container(
-                height: 20,
-                color: Colors.grey[100],
-              ),
-            ),
-          ],
-        ),
-      ),
-      separatorBuilder: (context, index) => const Divider(),
-      itemCount: 6,
-    );
-  }
-}
