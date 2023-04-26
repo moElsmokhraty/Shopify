@@ -32,11 +32,8 @@ class CartRepoImpl implements CartRepo {
 
   @override
   Future<Either<Failure, GetCartResponse>> getCart() async {
-    // TODO: implement getCart
     try {
-      var response =
-          await _apiService.get(endpoint: kGetCartEndpoint, token: token);
-      return Right(GetCartResponse.fromJson(response));
+      return Right(GetCartResponse.fromJson(await _apiService.get(endpoint: kGetCartEndpoint, token: token)));
     } on Exception catch (e) {
       if (e is DioError) {
         return Left(ServerFailure.fromDioError(e));

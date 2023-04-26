@@ -12,13 +12,10 @@ import 'package:store_app/features/home/presentation/views/home_view/home_view.d
 import 'package:store_app/features/home/presentation/views/home_view/widgets/cart_button.dart';
 import 'package:store_app/features/home/presentation/views/home_view/widgets/custom_app_bar.dart';
 import 'package:store_app/features/home/presentation/view_models/search_cubit/search_cubit.dart';
-import 'package:store_app/features/settings/data/repos/settings_repo/settings_repo_impl.dart';
-import 'package:store_app/features/settings/presentation/view_models/setting_cubit/setting_cubit.dart';
 import 'bloc_observer.dart';
 import 'core/utils/cache_helper.dart';
 import 'features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'features/home/presentation/views/favourite_view/favourite_view.dart';
-import 'features/settings/presentation/views/setting_view/setting_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
