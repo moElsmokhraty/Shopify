@@ -32,4 +32,3 @@ class CustomCartList extends StatelessWidget {
     }
   }
 }
-

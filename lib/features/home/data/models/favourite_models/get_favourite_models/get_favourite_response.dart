@@ -2,15 +2,15 @@ import 'package:equatable/equatable.dart';
 
 import 'favourite_data.dart';
 
-class FavouriteResponse extends Equatable {
+class GetFavouriteResponse extends Equatable {
   final bool? status;
   final dynamic message;
   final FavouriteData? data;
 
-  const FavouriteResponse({this.status, this.message, this.data});
+  const GetFavouriteResponse({this.status, this.message, this.data});
 
-  factory FavouriteResponse.fromJson(Map<String, dynamic> json) {
-    return FavouriteResponse(
+  factory GetFavouriteResponse.fromJson(Map<String, dynamic> json) {
+    return GetFavouriteResponse(
       status: json['status'] as bool?,
       message: json['message'] as dynamic,
       data: json['data'] == null

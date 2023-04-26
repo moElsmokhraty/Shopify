@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 import 'package:store_app/features/home/data/models/home_data_model/product.dart';
 
-class FavouriteModel extends Equatable {
+class AddOrRemoveFavouriteModel extends Equatable {
   final int? id;
   final Product? product;
 
-  const FavouriteModel({this.id, this.product});
+  const AddOrRemoveFavouriteModel({this.id, this.product});
 
-  factory FavouriteModel.fromJson(Map<String, dynamic> json) => FavouriteModel(
+  factory AddOrRemoveFavouriteModel.fromJson(Map<String, dynamic> json) => AddOrRemoveFavouriteModel(
         id: json['id'] as int?,
         product: json['product'] == null
             ? null

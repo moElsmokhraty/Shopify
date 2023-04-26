@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
-import 'favourite_model.dart';
+import 'get_favourite_model.dart';
 
 class FavouriteData extends Equatable {
   final int? currentPage;
-  final List<FavouriteModel>? data;
+  final List<GetFavouriteModel>? data;
   final String? firstPageUrl;
   final int? from;
   final int? lastPage;
@@ -34,7 +34,7 @@ class FavouriteData extends Equatable {
   factory FavouriteData.fromJson(Map<String, dynamic> json) => FavouriteData(
         currentPage: json['current_page'] as int?,
         data: (json['data'] as List<dynamic>?)
-            ?.map((e) => FavouriteModel.fromJson(e as Map<String, dynamic>))
+            ?.map((e) => GetFavouriteModel.fromJson(e as Map<String, dynamic>))
             .toList(),
         firstPageUrl: json['first_page_url'] as String?,
         from: json['from'] as int?,

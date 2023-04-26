@@ -26,8 +26,8 @@ class HomeCubit extends Cubit<HomeState> {
     const Scaffold(),
     BlocProvider(
       create: (context) => FavouriteCubit(
-        getIt.get<FavouriteRepoImpl>()..getFavourites(),
-      ),
+        getIt.get<FavouriteRepoImpl>(),
+      )..getFavourites(),
       child: const FavouriteView(),
     ),
     BlocProvider(

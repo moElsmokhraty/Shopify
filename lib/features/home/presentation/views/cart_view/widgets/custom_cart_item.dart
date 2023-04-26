@@ -23,7 +23,7 @@ class CustomCartItem extends StatelessWidget {
         dismissible: DismissiblePane(
           onDismissed: () async {
             print('a7a');
-            BlocProvider.of<CartCubit>(context)
+            await BlocProvider.of<CartCubit>(context)
                 .addOrRemoveCart(productId: cartItem!.product!.id!)
                 .then((value) {
               BlocProvider.of<CartCubit>(context).getCart();

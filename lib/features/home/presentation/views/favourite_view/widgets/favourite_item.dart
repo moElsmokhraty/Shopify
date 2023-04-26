@@ -1,18 +1,35 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:store_app/constants.dart';
 import 'package:store_app/core/utils/styles.dart';
-import 'package:store_app/features/home/data/models/favourite_models/favourite_response/favourite_model.dart';
+import 'package:store_app/features/home/data/models/favourite_models/get_favourite_models/get_favourite_model.dart';
+import 'package:store_app/features/home/presentation/view_models/favourite_cubit/favourite_cubit.dart';
+import 'package:store_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 
 class FavouriteItem extends StatelessWidget {
-  const FavouriteItem({Key? key, required this.favouriteModel}) : super(key: key);
+  const FavouriteItem({Key? key, required this.favouriteModel})
+      : super(key: key);
 
-  final FavouriteModel favouriteModel ;
+  final GetFavouriteModel favouriteModel;
+
   @override
   Widget build(BuildContext context) {
     return Slidable(
+      closeOnScroll: false,
       key: const ValueKey(0),
       startActionPane: ActionPane(
+        dismissible: DismissiblePane(
+          onDismissed: () async {
+            BlocProvider.of<FavouriteCubit>(context)
+                .addOrRemoveFavourite(favouriteModel.product!.id!)
+                .then((value) {
+              BlocProvider.of<FavouriteCubit>(context).getFavourites();
+              BlocProvider.of<HomeCubit>(context).getHomeData();
+            });
+          },
+        ),
         motion: const ScrollMotion(),
         children: [
           SlidableAction(
@@ -21,8 +38,9 @@ class FavouriteItem extends StatelessWidget {
             foregroundColor: Colors.white,
             autoClose: true,
             borderRadius: const BorderRadius.only(
-                bottomRight: Radius.circular(20),
-                topRight: Radius.circular(20)),
+              bottomRight: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
             icon: Icons.delete,
             label: 'Delete',
           ),
@@ -33,22 +51,24 @@ class FavouriteItem extends StatelessWidget {
         splashColor: Colors.transparent,
         child: Row(
           children: [
-            Image.network(
-              testImg,
+            CachedNetworkImage(
+              imageUrl: favouriteModel.product!.image!,
               width: 100,
               height: 100,
             ),
             const SizedBox(
               width: 15,
             ),
-            const Text(
-              "Iphone",
+            Text(
+              favouriteModel.product!.name!,
               style: Styles.textStyle20,
+              overflow: TextOverflow.ellipsis,
             ),
             const Spacer(),
-            const Text(
-              '12500 LE',
-              style: TextStyle(color: kMainColor, fontWeight: FontWeight.bold),
+            Text(
+              '${favouriteModel.product!.price!} LE',
+              style: const TextStyle(
+                  color: kMainColor, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
               width: 25,
