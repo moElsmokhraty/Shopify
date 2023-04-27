@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:store_app/constants.dart';
+import 'package:store_app/core/utils/functions.dart';
 import 'package:store_app/core/utils/styles.dart';
 import 'package:store_app/features/home/data/models/cart_models/cart_response/cart_item.dart';
 import 'package:store_app/features/home/presentation/view_models/cart_cubit/cart_cubit.dart';
@@ -16,25 +17,18 @@ class CustomCartItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    var homeCubit = BlocProvider.of<HomeCubit>(context);
+    var cartCubit = BlocProvider.of<CartCubit>(context);
     return Slidable(
       closeOnScroll: false,
       key: const ValueKey(0),
       startActionPane: ActionPane(
-        dismissible: DismissiblePane(
-          onDismissed: () async {
-            print('a7a');
-            await BlocProvider.of<CartCubit>(context)
-                .addOrRemoveCart(productId: cartItem!.product!.id!)
-                .then((value) {
-              BlocProvider.of<CartCubit>(context).getCart();
-              BlocProvider.of<HomeCubit>(context).getHomeData();
-            });
-          },
-        ),
         motion: const ScrollMotion(),
         children: [
           SlidableAction(
-            onPressed: (context) {},
+            onPressed: (context) {
+              removeCart(context: context, productId: cartItem!.product!.id!, homeCubit: homeCubit, cartCubit: cartCubit);
+            },
             backgroundColor: const Color(0xFFFE4A49),
             foregroundColor: Colors.white,
             autoClose: true,

@@ -6,7 +6,10 @@ import 'package:store_app/constants.dart';
 class Loading extends StatefulWidget {
   const Loading({
     Key? key,
+    required this.milliseconds,
   }) : super(key: key);
+
+  final int milliseconds;
 
   @override
   State<Loading> createState() => _LoadingState();
@@ -16,7 +19,7 @@ class _LoadingState extends State<Loading> {
   @override
   void initState() {
     Timer(
-      const Duration(milliseconds: 7000),
+      Duration(milliseconds: widget.milliseconds),
       () => Navigator.pop(context),
     );
     super.initState();

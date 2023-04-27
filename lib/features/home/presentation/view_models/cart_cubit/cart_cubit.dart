@@ -16,7 +16,7 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> getCart() async {
     emit(GetCartLoading());
-    var data = await _cartRepoImpl.getCart();
+    var data = await _cartRepoImpl.fetchCart();
     data.fold((failure) {
       emit(GetCartFailure(failure.errMessage));
     }, (cart) {

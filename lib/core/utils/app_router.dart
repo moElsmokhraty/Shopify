@@ -77,7 +77,7 @@ abstract class AppRouter {
       GoRoute(
           path: kCartView,
           builder: (context, state) => BlocProvider(
-                create: (context) => CartCubit(getIt.get<CartRepoImpl>()),
+                create: (context) => CartCubit(getIt.get<CartRepoImpl>())..getCart(),
                 child: CartView(cartResponse: state.extra as GetCartResponse),
               )),
     ],

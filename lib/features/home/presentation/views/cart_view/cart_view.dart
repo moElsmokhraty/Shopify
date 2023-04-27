@@ -9,11 +9,9 @@ class CartView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
-        child: CartViewBody(
-          cartResponse: cartResponse,
-        ),
+        child: CartViewBody(),
       ),
       backgroundColor: Colors.white,
     );

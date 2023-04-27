@@ -31,7 +31,7 @@ class CartRepoImpl implements CartRepo {
   }
 
   @override
-  Future<Either<Failure, GetCartResponse>> getCart() async {
+  Future<Either<Failure, GetCartResponse>> fetchCart() async {
     try {
       return Right(GetCartResponse.fromJson(await _apiService.get(endpoint: kGetCartEndpoint, token: token)));
     } on Exception catch (e) {

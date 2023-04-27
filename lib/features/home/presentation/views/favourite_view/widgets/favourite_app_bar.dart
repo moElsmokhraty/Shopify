@@ -24,7 +24,7 @@ class FavouriteAppBar extends StatelessWidget {
             height: 15,
           ),
           const Text(
-            "Favourite",
+            "Favourites",
             style: Styles.textStyle24,
           ),
         ],

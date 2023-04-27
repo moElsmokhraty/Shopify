@@ -92,7 +92,9 @@ class BestSellerItem extends StatelessWidget {
               onTap: () async {
                 showDialog(
                   context: context,
-                  builder: (context) => const Loading(),
+                  builder: (context) => const Loading(
+                    milliseconds: 7000,
+                  ),
                 );
                 BlocProvider.of<FavouriteCubit>(context)
                     .addOrRemoveFavourite(product.id!)

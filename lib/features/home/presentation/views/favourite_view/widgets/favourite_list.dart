@@ -12,6 +12,18 @@ class FavouriteList extends StatelessWidget {
     return BlocBuilder<FavouriteCubit, FavouriteState>(
       builder: (context, state) {
         if (state is GetFavouriteSuccess) {
+          if (state.response.data!.data!.isEmpty) {
+            return const Center(
+              child: Text(
+                'Favourites List Is Empty!!!',
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            );
+          }
           return ListView.separated(
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) => FavouriteItem(

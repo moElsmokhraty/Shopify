@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:store_app/constants.dart';
+import 'package:store_app/core/utils/functions.dart';
 import 'package:store_app/core/utils/styles.dart';
-import 'package:store_app/core/widgets/loading_screen.dart';
 import 'package:store_app/features/home/data/models/favourite_models/get_favourite_models/get_favourite_model.dart';
 import 'package:store_app/features/home/presentation/view_models/favourite_cubit/favourite_cubit.dart';
 import 'package:store_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
@@ -17,6 +17,8 @@ class FavouriteItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var favouriteCubit = BlocProvider.of<FavouriteCubit>(context);
+    var homeCubit = BlocProvider.of<HomeCubit>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Slidable(
@@ -27,15 +29,12 @@ class FavouriteItem extends StatelessWidget {
           children: [
             SlidableAction(
               onPressed: (context) async {
-                showDialog(
+                removeFavourite(
                   context: context,
-                  builder: (context) => const Loading(),
+                  favouriteModel: favouriteModel,
+                  homeCubit: homeCubit,
+                  favouriteCubit: favouriteCubit,
                 );
-                await BlocProvider.of<FavouriteCubit>(context)
-                    .addOrRemoveFavourite(favouriteModel.product!.id!)
-                   ;
-                await BlocProvider.of<FavouriteCubit>(context).getFavourites();
-                await BlocProvider.of<HomeCubit>(context).getHomeData();
               },
               backgroundColor: const Color(0xFFFE4A49),
               foregroundColor: Colors.white,
