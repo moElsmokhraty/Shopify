@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store_app/constants.dart';
+import 'package:store_app/core/models/user_data_model/user_data_response.dart';
 import 'package:store_app/core/utils/service_locator.dart';
 import 'package:store_app/features/auth/data/repos/login_repo/login_repo_impl.dart';
 import 'package:store_app/features/auth/data/repos/register_repo/register_repo_impl.dart';
@@ -77,7 +78,8 @@ abstract class AppRouter {
       GoRoute(
           path: kCartView,
           builder: (context, state) => BlocProvider(
-                create: (context) => CartCubit(getIt.get<CartRepoImpl>())..getCart(),
+                create: (context) =>
+                    CartCubit(getIt.get<CartRepoImpl>())..getCart(),
                 child: CartView(cartResponse: state.extra as GetCartResponse),
               )),
     ],

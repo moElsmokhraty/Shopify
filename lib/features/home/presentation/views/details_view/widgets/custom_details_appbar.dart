@@ -12,7 +12,7 @@ class DetailsAppBar extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {
-            AppRouter.router.pop();
+            AppRouter.router.pushReplacement(AppRouter.kHomeView);
           },
           icon: const Icon(Icons.arrow_back_ios_sharp),
         ),

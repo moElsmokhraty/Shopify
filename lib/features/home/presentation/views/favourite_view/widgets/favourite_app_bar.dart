@@ -9,6 +9,7 @@ class FavouriteAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HomeCubit homeCubit = BlocProvider.of<HomeCubit>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       child: Column(
@@ -16,7 +17,8 @@ class FavouriteAppBar extends StatelessWidget {
         children: [
           CustomIconButton(
             onTap: () {
-              BlocProvider.of<HomeCubit>(context).changeNavBarIndex(0);
+              homeCubit.changeNavBarIndex(0);
+              homeCubit.getHomeData();
             },
             iconData: Icons.arrow_back_sharp,
           ),

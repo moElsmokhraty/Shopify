@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/constants.dart';
 import 'package:store_app/core/utils/app_router.dart';
 import 'package:store_app/core/utils/service_locator.dart';
+import 'package:store_app/features/auth/presentation/view_models/cubits/login_cubit/login_cubit.dart';
 import 'package:store_app/features/home/data/repos/cart_repo/cart_repo_impl.dart';
 import 'package:store_app/features/home/data/repos/favourite_repo/favourite_repo_impl.dart';
 import 'package:store_app/features/home/data/repos/home_repo/home_repo_impl.dart';
@@ -14,6 +15,8 @@ import 'package:store_app/features/home/presentation/views/home_view/widgets/cus
 import 'package:store_app/features/home/presentation/view_models/search_cubit/search_cubit.dart';
 import 'bloc_observer.dart';
 import 'core/utils/cache_helper.dart';
+import 'features/auth/data/repos/login_repo/login_repo_impl.dart';
+import 'features/auth/presentation/views/login_view/login_view.dart';
 import 'features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'features/home/presentation/views/favourite_view/favourite_view.dart';
 
@@ -37,6 +40,10 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => SearchCubit(),
           child: const CustomAppBar(),
+        ),
+        BlocProvider(
+          create: (context) => LoginCubit(getIt.get<LoginRepoImpl>()),
+          child: const LoginView(),
         ),
         BlocProvider(
           create: (context) => CartCubit(getIt.get<CartRepoImpl>())..getCart(),

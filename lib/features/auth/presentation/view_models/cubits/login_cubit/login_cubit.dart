@@ -21,6 +21,8 @@ class LoginCubit extends Cubit<LoginState> {
 
   final formKey = GlobalKey<FormState>();
 
+  UserData? userData;
+
   Future<void> login(LoginRequest request) async {
     emit(LoginLoading());
     var result = await _loginRepoImpl.login(request);
@@ -28,6 +30,7 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginFailure(failure.errMessage));
     }, (response) {
       if (response.status == true) {
+        userData = response.data;
         emit(LoginSuccess(response.data!));
       } else {
         emit(LoginFailure(response.message!));
