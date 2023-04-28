@@ -12,7 +12,7 @@ class DetailsRepoImpl implements DetailsRepo {
   DetailsRepoImpl(this._apiService);
 
   @override
-  Future<Either<Failure, ProductDetailsResponse>> getProductDetails(
+  Future<Either<Failure, ProductDetailsResponse>> fetchProductDetails(
       int productID) async {
     // TODO: implement getProductDetails
     try {

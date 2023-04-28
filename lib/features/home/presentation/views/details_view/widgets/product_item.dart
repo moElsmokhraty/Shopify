@@ -14,6 +14,7 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     HomeCubit homeCubit = BlocProvider.of(context);
     CartCubit cartCubit = BlocProvider.of(context);
+    DetailsCubit detailsCubit = BlocProvider.of(context);
     return BlocBuilder<DetailsCubit, DetailsState>(
       builder: (context, state) {
         if (state is GetDetailsSuccess) {
@@ -50,14 +51,30 @@ class ProductItem extends StatelessWidget {
                       width: 8,
                     ),
                     InkWell(
-                      onTap: () {
-                        addOrRemoveCart(
-                          context: context,
-                          productId: state.product.id!,
-                          homeCubit: homeCubit,
-                          cartCubit: cartCubit,
-                          milliseconds: 7000,
-                        );
+                      onTap: () async {
+                        if (state.product.inCart! == false) {
+                          addOrRemoveCart(
+                            context: context,
+                            productId: state.product.id!,
+                            homeCubit: homeCubit,
+                            cartCubit: cartCubit,
+                            milliseconds: 7000,
+                          );
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Row(
+                                children: const [
+                                  Icon(Icons.error),
+                                  SizedBox(
+                                    width: 15,
+                                  ),
+                                  Text("Already Item in Cart"),
+                                ],
+                              ),
+                            ),
+                          );
+                        }
                       },
                       child: Container(
                         width: 100,
@@ -82,7 +99,7 @@ class ProductItem extends StatelessWidget {
                     ),
                     const Spacer(),
                     Text(
-                      '${state.product.price!}',
+                      '${state.product.price!} LE',
                       style: const TextStyle(
                         color: Colors.green,
                         fontWeight: FontWeight.bold,

@@ -12,7 +12,7 @@ class DetailsCubit extends Cubit<DetailsState> {
 
   Future<void> getProductDetails(int productID) async {
     emit(GetDetailsLoading());
-    var data = await _detailsRepoImpl.getProductDetails(productID);
+    var data = await _detailsRepoImpl.fetchProductDetails(productID);
     data.fold((failure) {
       emit(GetDetailsFailure(failure.errMessage));
     }, (response) {
