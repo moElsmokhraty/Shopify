@@ -25,7 +25,7 @@ void removeFavourite({
   });
 }
 
-void removeCart({
+void addOrRemoveCart({
   required BuildContext context,
   required int productId,
   required HomeCubit homeCubit,
@@ -38,7 +38,8 @@ void removeCart({
     ),
   );
   await cartCubit.addOrRemoveCart(productId: productId).then((value) {
-    cartCubit.getCart();
-    homeCubit.getHomeData();
+    cartCubit.getCart().then((value){
+      homeCubit.getHomeData();
+    });
   });
 }

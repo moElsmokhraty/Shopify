@@ -42,11 +42,15 @@ class MyApp extends StatelessWidget {
           child: const CustomAppBar(),
         ),
         BlocProvider(
-          create: (context) => LoginCubit(getIt.get<LoginRepoImpl>()),
+          create: (context) => LoginCubit(
+            getIt.get<LoginRepoImpl>(),
+          ),
           child: const LoginView(),
         ),
         BlocProvider(
-          create: (context) => CartCubit(getIt.get<CartRepoImpl>())..getCart(),
+          create: (context) => CartCubit(
+            getIt.get<CartRepoImpl>(),
+          )..getCart(),
           child: const CartButton(),
         ),
         BlocProvider(

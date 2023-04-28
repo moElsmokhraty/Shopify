@@ -20,7 +20,7 @@ class AddOrRemoveCartButton extends StatelessWidget {
     return BlocBuilder<CartCubit, CartState>(
       builder: (context, state) => InkWell(
         onTap: () async {
-          removeCart(
+          addOrRemoveCart(
             context: context,
             productId: product.id!,
             homeCubit: homeCubit,

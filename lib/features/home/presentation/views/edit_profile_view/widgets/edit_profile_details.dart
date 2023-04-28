@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/constants.dart';
-import 'package:store_app/core/models/user_data_model/user_data.dart';
 import 'package:store_app/core/widgets/custom_name_bio_view.dart';
-import 'package:store_app/features/auth/presentation/view_models/cubits/login_cubit/login_cubit.dart';
 import 'package:store_app/features/home/presentation/views/edit_profile_view/widgets/custom_text_field.dart';
 
 class EditProfileDetails extends StatelessWidget {
@@ -11,7 +8,6 @@ class EditProfileDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var userData = BlocProvider.of<LoginCubit>(context).userData;
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
@@ -29,7 +25,7 @@ class EditProfileDetails extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          NameAndBio(
+          const NameAndBio(
             name: 'userData!.name!',
             email: 'userData.email!',
           ),

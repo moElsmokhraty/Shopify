@@ -12,7 +12,9 @@ class DetailsViewBody extends StatelessWidget {
       child: Column(
         children: const [
           DetailsAppBar(),
-          Expanded(child: ProductItem()),
+          Expanded(
+            child: ProductItem(),
+          ),
         ],
       ),
     );

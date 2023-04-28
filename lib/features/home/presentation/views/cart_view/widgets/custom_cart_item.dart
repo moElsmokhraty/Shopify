@@ -27,7 +27,7 @@ class CustomCartItem extends StatelessWidget {
         children: [
           SlidableAction(
             onPressed: (context) {
-              removeCart(context: context, productId: cartItem!.product!.id!, homeCubit: homeCubit, cartCubit: cartCubit);
+              addOrRemoveCart(context: context, productId: cartItem!.product!.id!, homeCubit: homeCubit, cartCubit: cartCubit);
             },
             backgroundColor: const Color(0xFFFE4A49),
             foregroundColor: Colors.white,
