@@ -31,7 +31,9 @@ class CustomCartItem extends StatelessWidget {
                   context: context,
                   productId: cartItem!.product!.id!,
                   homeCubit: homeCubit,
-                  cartCubit: cartCubit);
+                  cartCubit: cartCubit,
+                milliseconds: 4000,
+              );
             },
             backgroundColor: const Color(0xFFFE4A49),
             foregroundColor: Colors.white,

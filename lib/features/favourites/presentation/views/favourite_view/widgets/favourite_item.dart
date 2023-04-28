@@ -33,7 +33,7 @@ class FavouriteItem extends StatelessWidget {
               onPressed: (context) async {
                 addOrRemoveFavourite(
                   context: context,
-                  favouriteModel: favouriteModel,
+                  productId: favouriteModel.product!.id!,
                   homeCubit: homeCubit,
                   favouriteCubit: favouritesCubit,
                 );

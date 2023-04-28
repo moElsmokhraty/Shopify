@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:store_app/features/home/presentation/views/home_view/widgets/search_text_field.dart';
 
@@ -28,12 +30,11 @@ class AutocompleteExample extends StatelessWidget {
         if (textEditingValue.text.isEmpty) {
           return const Iterable<String>.empty();
         }
-        return _suggestions.where((String suggestion) => suggestion
-            .toLowerCase()
-            .contains(textEditingValue.text.toLowerCase()));
+        return _suggestions;
       },
       onSelected: (String selection) {
         _textEditingController.text = selection;
+        /// TODO: Navigate to details
       },
       fieldViewBuilder: (BuildContext context,
           TextEditingController textEditingController,
@@ -68,7 +69,8 @@ class OptionView extends StatelessWidget {
     return Container(
       margin: EdgeInsetsDirectional.only(
         end: 50,
-        bottom: MediaQuery.of(context).size.height - 80 * options.length,
+        bottom: max(MediaQuery.of(context).size.height - 80 * options.length,
+            MediaQuery.of(context).size.height - 80 * 5),
       ),
       decoration: BoxDecoration(
         color: Colors.white,

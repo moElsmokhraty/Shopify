@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/features/home/presentation/views/edit_profile_view/widgets/edit_profile_body.dart';
+import 'package:store_app/features/settings/presentation/views/edit_profile_view/widgets/edit_profile_body.dart';
 
 class EditProfileView extends StatelessWidget {
   const EditProfileView({Key? key}) : super(key: key);

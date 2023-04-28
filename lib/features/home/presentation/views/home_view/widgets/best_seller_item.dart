@@ -2,11 +2,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/constants.dart';
+import 'package:store_app/core/utils/functions.dart';
 import 'package:store_app/features/cart/presentation/views/cart_view/widgets/add_or_remove_cart_button.dart';
 import 'package:store_app/features/favourites/presentation/view_models/favourites_cubit/favourites_cubit.dart';
 import 'package:store_app/core/models/product.dart';
 import 'package:store_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
-import 'package:store_app/core/widgets/loading_screen.dart';
 
 class BestSellerItem extends StatelessWidget {
   const BestSellerItem({
@@ -21,6 +21,8 @@ class BestSellerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var favouritesCubit = BlocProvider.of<FavouritesCubit>(context);
+    var homeCubit = BlocProvider.of<HomeCubit>(context);
     return InkWell(
       onTap: pushRoute,
       child: Card(
@@ -90,17 +92,13 @@ class BestSellerItem extends StatelessWidget {
             ),
             InkWell(
               onTap: () async {
-                showDialog(
+                addOrRemoveFavourite(
                   context: context,
-                  builder: (context) => const Loading(
-                    milliseconds: 7000,
-                  ),
+                  productId: product.id!,
+                  homeCubit: homeCubit,
+                  favouriteCubit: favouritesCubit,
+                  milliseconds: 7000,
                 );
-                BlocProvider.of<FavouritesCubit>(context)
-                    .addOrRemoveFavourite(product.id!)
-                    .then((value) {
-                  BlocProvider.of<HomeCubit>(context).getHomeData();
-                });
               },
               child: Container(
                 height: 30,

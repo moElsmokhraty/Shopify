@@ -51,7 +51,7 @@ class HomeCubit extends Cubit<HomeState> {
     }, (response) {
       if (response.status == true) {
         homeDataResponse = response;
-        emit(HomeGetDataSuccess());
+        emit(HomeGetDataSuccess(homeDataResponse));
       } else {
         emit(HomeGetDataFailure('error'));
       }

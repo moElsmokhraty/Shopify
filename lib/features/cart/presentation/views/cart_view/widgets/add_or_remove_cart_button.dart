@@ -25,6 +25,7 @@ class AddOrRemoveCartButton extends StatelessWidget {
             productId: product.id!,
             homeCubit: homeCubit,
             cartCubit: cartCubit,
+            milliseconds: 4000,
           );
           homeCubit.getHomeData();
         },

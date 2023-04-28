@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/features/home/presentation/views/edit_profile_view/widgets/custom_profile_appbar.dart';
-import 'package:store_app/features/home/presentation/views/edit_profile_view/widgets/edit_profile_details.dart';
+import 'package:store_app/features/settings/presentation/views/edit_profile_view/widgets/custom_profile_appbar.dart';
+import 'package:store_app/features/settings/presentation/views/edit_profile_view/widgets/edit_profile_details.dart';
 
 class EditProfileBody extends StatelessWidget {
   const EditProfileBody({Key? key}) : super(key: key);

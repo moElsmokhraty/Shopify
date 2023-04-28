@@ -43,6 +43,8 @@ class HomeBodyListView extends StatelessWidget {
                     ),
                     BlocBuilder<HomeCubit, HomeState>(
                       builder: (context, state) {
+                        var cubit = BlocProvider.of<HomeCubit>(context);
+                        // .homeDataResponse;
                         if (state is HomeGetDataFailure) {
                           return const Center(
                             child: Icon(
@@ -54,9 +56,7 @@ class HomeBodyListView extends StatelessWidget {
                             state is ChangeNavBarIndex ||
                             state is HomeGetDataLoading) {
                           return BestSellerGridView(
-                            response: BlocProvider.of<HomeCubit>(context)
-                                .homeDataResponse,
-                          );
+                              response: cubit.homeDataResponse);
                         } else {
                           return const BestSellerGridView();
                         }

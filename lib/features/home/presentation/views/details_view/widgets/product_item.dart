@@ -56,6 +56,7 @@ class ProductItem extends StatelessWidget {
                           productId: state.product.id!,
                           homeCubit: homeCubit,
                           cartCubit: cartCubit,
+                          milliseconds: 7000,
                         );
                       },
                       child: Container(
