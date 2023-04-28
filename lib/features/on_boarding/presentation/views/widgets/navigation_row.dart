@@ -8,7 +8,7 @@ class NavigationRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cubit = BlocProvider.of<OnBoardingCubit>(context);
+    OnBoardingCubit cubit = BlocProvider.of(context);
     return Row(
       children: [
         SmoothPageIndicator(

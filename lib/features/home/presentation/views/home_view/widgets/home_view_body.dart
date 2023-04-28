@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/features/home/presentation/view_models/cart_cubit/cart_cubit.dart';
-import 'package:store_app/features/home/presentation/views/home_view/widgets/custom_app_bar.dart';
+import 'package:store_app/features/cart/presentation/view_models/cart_cubit/cart_cubit.dart';
+import 'package:store_app/features/home/presentation/views/home_view/widgets/home_app_bar.dart';
 import 'package:store_app/features/home/presentation/views/home_view/widgets/home_body_list_view.dart';
 
-class HomeBodyView extends StatelessWidget {
-  const HomeBodyView({Key? key}) : super(key: key);
+class HomeViewBody extends StatelessWidget {
+  const HomeViewBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class HomeBodyView extends StatelessWidget {
         SizedBox(
           height: 12,
         ),
-        CustomAppBar(),
+        HomeAppBar(),
         SizedBox(
           height: 5,
         ),

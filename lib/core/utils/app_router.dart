@@ -8,11 +8,12 @@ import 'package:store_app/features/auth/presentation/view_models/cubits/login_cu
 import 'package:store_app/features/auth/presentation/view_models/cubits/register_cubit/register_cubit.dart';
 import 'package:store_app/features/auth/presentation/views/login_view/login_view.dart';
 import 'package:store_app/features/auth/presentation/views/register_view/register_view.dart';
-import 'package:store_app/features/home/data/models/cart_models/cart_response/get_cart_response.dart';
-import 'package:store_app/features/home/data/repos/cart_repo/cart_repo_impl.dart';
+import 'package:store_app/features/cart/data/models/get_cart_models/get_cart_response.dart';
+import 'package:store_app/features/cart/data/repos/cart_repo/cart_repo_impl.dart';
+import 'package:store_app/features/cart/presentation/view_models/cart_cubit/cart_cubit.dart';
+import 'package:store_app/features/cart/presentation/views/cart_view/cart_view.dart';
 import 'package:store_app/features/home/data/repos/details_repo/details_repo_impl.dart';
-import 'package:store_app/features/home/presentation/view_models/cart_cubit/cart_cubit.dart';
-import 'package:store_app/features/home/presentation/views/cart_view/cart_view.dart';
+import 'package:store_app/features/home/data/repos/home_repo/home_repo_impl.dart';
 import 'package:store_app/features/home/presentation/views/details_view/details_view.dart';
 import 'package:store_app/features/home/presentation/views/edit_profile_view/edit_profile_view.dart';
 import 'package:store_app/features/home/presentation/views/home_view/home_view.dart';
@@ -20,7 +21,6 @@ import 'package:store_app/features/home/presentation/view_models/details_cubit/d
 import 'package:store_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:store_app/features/on_boarding/presentation/view_model/on_boarding_cubit/on_boarding_cubit.dart';
 import 'package:store_app/features/on_boarding/presentation/views/on_boarding_view.dart';
-import '../../features/home/data/repos/home_repo/home_repo_impl.dart';
 
 abstract class AppRouter {
   static const kOnBoardingView = '/onboarding';

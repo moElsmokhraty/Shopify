@@ -8,7 +8,7 @@ class CustomPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cubit = BlocProvider.of<OnBoardingCubit>(context);
+    OnBoardingCubit cubit = BlocProvider.of(context);
     return Expanded(
       child: PageView.builder(
         controller: cubit.onBoardingController,

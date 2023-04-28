@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:store_app/constants.dart';
 import 'package:store_app/core/errors/failure.dart';
-import 'package:store_app/core/models/user_data_model/user_data_response.dart';
+import 'package:store_app/core/models/user_data_models/user_data_response.dart';
 import 'package:store_app/core/utils/api_service.dart';
-import 'package:store_app/features/settings/data/models/log_out_response.dart';
+import 'package:store_app/features/settings/data/models/log_out_models/log_out_response.dart';
 import 'package:store_app/features/settings/data/repos/settings_repo/settings_repo.dart';
 
 class SettingsRepoImpl implements SettingsRepo {

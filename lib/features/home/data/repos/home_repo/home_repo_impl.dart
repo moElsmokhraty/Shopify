@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:store_app/constants.dart';
 import 'package:store_app/core/errors/failure.dart';
 import 'package:store_app/core/utils/api_service.dart';
-import 'package:store_app/features/home/data/models/home_data_model/home_data_response.dart';
+import 'package:store_app/features/home/data/models/home_data_models/home_data_response.dart';
 import 'package:store_app/features/home/data/repos/home_repo/home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {

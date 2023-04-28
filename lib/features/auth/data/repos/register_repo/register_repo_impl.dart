@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:store_app/constants.dart';
 import 'package:store_app/core/errors/failure.dart';
-import 'package:store_app/core/models/user_data_model/user_data_response.dart';
+import 'package:store_app/core/models/user_data_models/user_data_response.dart';
 import 'package:store_app/core/utils/api_service.dart';
 import 'package:store_app/features/auth/data/models/register_models/register_request.dart';
 import 'package:store_app/features/auth/data/repos/register_repo/register_repo.dart';

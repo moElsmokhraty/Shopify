@@ -1,7 +1,5 @@
 import 'dart:ui';
 
-import 'package:store_app/core/models/user_data_model/user_data.dart';
-
 const kLoginEndpoint = 'login';
 
 const kRegisterEndpoint = 'register';
@@ -30,8 +28,4 @@ const kEmail = 'email';
 
 const kImage = 'image';
 
-UserData? userData;
-
 String? token;
-const testImg =
-    'https://student.valuxapps.com/storage/uploads/products/1615440322npwmU.71DVgBTdyLL._SL1500_.jpg';

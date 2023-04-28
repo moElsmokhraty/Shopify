@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:store_app/core/models/user_data_model/user_data.dart';
+import 'package:store_app/core/models/user_data_models/user_data.dart';
 import 'package:store_app/features/auth/data/models/login_models/login_request.dart';
 import 'package:store_app/features/auth/data/repos/login_repo/login_repo_impl.dart';
 

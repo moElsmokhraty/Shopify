@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/constants.dart';
 import 'package:store_app/core/utils/functions.dart';
-import 'package:store_app/features/home/presentation/view_models/cart_cubit/cart_cubit.dart';
+import 'package:store_app/features/cart/presentation/view_models/cart_cubit/cart_cubit.dart';
 import 'package:store_app/features/home/presentation/view_models/details_cubit/details_cubit.dart';
 import 'package:store_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:store_app/features/home/presentation/views/details_view/widgets/custom_product_images.dart';
@@ -23,7 +23,7 @@ class ProductItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomProductImages(
-                  images: state.productDetails.images!,
+                  images: state.product.images!,
                 ),
                 const SizedBox(
                   height: 15,
@@ -33,7 +33,7 @@ class ProductItem extends StatelessWidget {
                     horizontal: 8.0,
                   ),
                   child: Text(
-                    state.productDetails.name!,
+                    state.product.name!,
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -53,7 +53,7 @@ class ProductItem extends StatelessWidget {
                       onTap: () {
                         addOrRemoveCart(
                           context: context,
-                          productId: state.productDetails.id!,
+                          productId: state.product.id!,
                           homeCubit: homeCubit,
                           cartCubit: cartCubit,
                         );
@@ -81,7 +81,7 @@ class ProductItem extends StatelessWidget {
                     ),
                     const Spacer(),
                     Text(
-                      '${state.productDetails.price!}',
+                      '${state.product.price!}',
                       style: const TextStyle(
                         color: Colors.green,
                         fontWeight: FontWeight.bold,
@@ -105,7 +105,7 @@ class ProductItem extends StatelessWidget {
                 ),
                 const Divider(),
                 Text(
-                  state.productDetails.description!,
+                  state.product.description!,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,

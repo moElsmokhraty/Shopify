@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:store_app/constants.dart';
 import 'package:store_app/core/errors/failure.dart';
 import 'package:store_app/core/utils/api_service.dart';
-import 'package:store_app/features/home/data/models/details_models/product_details/product_details_response.dart';
+import 'package:store_app/features/home/data/models/product_details_models/product_details_response.dart';
 import 'package:store_app/features/home/data/repos/details_repo/details_repo.dart';
 
 class DetailsRepoImpl implements DetailsRepo {

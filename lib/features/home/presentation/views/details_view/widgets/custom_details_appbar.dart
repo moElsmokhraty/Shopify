@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart' as badges;
-import 'package:store_app/core/utils/app_assets.dart';
 import 'package:store_app/core/utils/app_router.dart';
 import 'package:store_app/features/home/presentation/views/home_view/widgets/cart_button.dart';
 

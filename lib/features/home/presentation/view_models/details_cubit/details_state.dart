@@ -8,9 +8,9 @@ class DetailsInitial extends DetailsState {}
 class GetDetailsLoading extends DetailsState {}
 
 class GetDetailsSuccess extends DetailsState {
-  final ProductDetails productDetails;
+  final Product product;
 
-  GetDetailsSuccess(this.productDetails);
+  GetDetailsSuccess(this.product);
 }
 
 class GetDetailsFailure extends DetailsState {
