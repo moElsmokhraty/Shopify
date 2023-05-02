@@ -14,7 +14,6 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     HomeCubit homeCubit = BlocProvider.of(context);
     CartCubit cartCubit = BlocProvider.of(context);
-    DetailsCubit detailsCubit = BlocProvider.of(context);
     return BlocBuilder<DetailsCubit, DetailsState>(
       builder: (context, state) {
         if (state is GetDetailsSuccess) {
@@ -61,20 +60,21 @@ class ProductItem extends StatelessWidget {
                             milliseconds: 7000,
                           );
                         } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Row(
-                                children: const [
-                                  Icon(Icons.error),
-                                  SizedBox(
-                                    width: 15,
-                                  ),
-                                  Text("Already Item in Cart"),
-                                ],
-                              ),
-                            ),
-                          );
+                          // ScaffoldMessenger.of(context).showSnackBar(
+                          //   SnackBar(
+                          //     content: Row(
+                          //       children: const [
+                          //         Icon(Icons.error),
+                          //         SizedBox(
+                          //           width: 15,
+                          //         ),
+                          //         Text("Already Item in Cart"),
+                          //       ],
+                          //     ),
+                          //   ),
+                          // );
                         }
+
                       },
                       child: Container(
                         width: 100,
