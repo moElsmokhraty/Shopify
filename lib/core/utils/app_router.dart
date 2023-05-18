@@ -23,9 +23,9 @@ import 'package:store_app/features/on_boarding/presentation/views/on_boarding_vi
 import 'package:store_app/features/settings/presentation/views/edit_profile_view/edit_profile_view.dart';
 
 abstract class AppRouter {
-  static const kOnBoardingView = '/onboarding';
+  static const kOnBoardingView = '/onBoarding';
   static String kLoginView = token == null ? '/' : '/login';
-  static String kHomeView = token != null ? '/' : '/home';
+  static String kHomeView = token == null ? '/home' : '/';
   static const kDetailsView = '/details';
   static const kRegisterView = '/reg';
   static const kEditProfileView = '/edit';

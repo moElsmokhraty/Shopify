@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:store_app/constants.dart';
 import 'package:store_app/core/utils/app_router.dart';
 
 class OnBoardingAppBar extends StatelessWidget {
@@ -17,6 +18,9 @@ class OnBoardingAppBar extends StatelessWidget {
           child: const Text(
             'Skip',
             textAlign: TextAlign.end,
+            style: TextStyle(
+              color: kMainColor,
+            ),
           ),
         ),
       ],

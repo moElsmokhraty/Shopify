@@ -22,11 +22,11 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
 
   List<OnBoardingModel> models = [
     OnBoardingModel(
-        'assets/images/onboarding_1.jpg', 'screenTitle', 'screenBody 1'),
+        'assets/images/onboarding_1.jpg', 'Store App', 'Hot Offers'),
     OnBoardingModel(
-        'assets/images/onboarding_1.jpg', 'screenTitle', 'screenBody 2'),
+        'assets/images/onboarding_1.jpg', 'Store App', 'User Friendly'),
     OnBoardingModel(
-        'assets/images/onboarding_1.jpg', 'screenTitle', 'screenBody 3'),
+        'assets/images/onboarding_1.jpg', 'Store', 'High Performance'),
   ];
 
   bool isLastIndex(int index) {
