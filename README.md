@@ -1,16 +1,21 @@
-# store_app
+Shopify Mobile App
+=============================
+Shopify is an e-commerce app built using flutter framework, restful apis.
 
-A new Flutter project.
+## Screenshots
 
-## Getting Started
+|                                                                                                                                     |                                                                                                                                     |                                                                                                                                     |
+|:-----------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------:|
+| <img alt="Shopify" src="https://github.com/moElsmokhraty/store_app/blob/master/screenshots/Screenshot_1683156273.png" width="600"/> | <img alt="Shopify" src="https://github.com/moElsmokhraty/store_app/blob/master/screenshots/Screenshot_1683065297.png" width="600"/> | <img alt="Shopify" src="https://github.com/moElsmokhraty/store_app/blob/master/screenshots/Screenshot_1683065303.png" width="600"/> |
+| <img alt="Shopify" src="https://github.com/moElsmokhraty/store_app/blob/master/screenshots/Screenshot_1683065212.png" width="600"/> | <img alt="Shopify" src="https://github.com/moElsmokhraty/store_app/blob/master/screenshots/Screenshot_1683065220.png" width="600"/> | <img alt="Shopify" src="https://github.com/moElsmokhraty/store_app/blob/master/screenshots/Screenshot_1683065270.png" width="600"/> |
+| <img alt="Shopify" src="https://github.com/moElsmokhraty/store_app/blob/master/screenshots/Screenshot_1683065257.png" width="600"/> | <img alt="Shopify" src="https://github.com/moElsmokhraty/store_app/blob/master/screenshots/Screenshot_1683065229.png" width="600"/> | <img alt="Shopify" src="https://github.com/moElsmokhraty/store_app/blob/master/screenshots/Screenshot_1683157222.png" width="600"/> |
 
-This project is a starting point for a Flutter application.
+## Used Technologies
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter Framework
+- Dart
+- Dio & Restful APIs
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Cloning the Repo
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+`git clone git@github.com:moElsmokhraty/store_app.git`
