@@ -12,10 +12,13 @@ Shopify is an e-commerce app built using flutter framework, restful apis.
 
 ## Used Technologies
 
-- Flutter Framework
-- Dart
-- Dio & Restful APIs
+- Flutter
+- MVVM
+- Cubit
+- Dio
+- Restful APIs
+- Dependency Injection
 
 ## Cloning the Repo
 
-`git clone git@github.com:moElsmokhraty/store_app.git`
+`git clone git@github.com:moElsmokhraty/Shopify.git`
